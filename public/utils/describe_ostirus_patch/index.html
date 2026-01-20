@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virus TI / osTIirus Patch Describer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 2em auto;
+      line-height: 1.4;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+    }
+    pre {
+      background: #f9f9f9;
+      padding: 1em;
+      overflow-x: auto;
+    }
+    button {
+      margin: 1em 0;
+      padding: 0.5em 1em;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Virus TI / oStirus Patch Describer</h1>
+
+  <p>Paste your patch JSON (exported from oStirus or your own tool) into the box below, then click <strong>Parse</strong>.</p>
+
+  <textarea id="input-json" placeholder='{      ,"sysex":"F0 ... "}'></textarea>
+  <br>
+  <button id="parse">Parse Patch</button>
+
+  <h2>Parameter Values</h2>
+  <pre id="output">—</pre>
+
+  <script>
+    // 1) Define the full 0–255 parameter map
+    const paramMap = {
+      0:  "Modulation Wheel",
+      1:  "Volume",
+      2:  "Pan",
+      3:  "Pitch Bend Range",
+      4:  "Portamento Time",
+      5:  "Portamento On/Off",
+      6:  "Glide Mode",
+      7:  "Aftertouch Depth",
+      8:  "Aftertouch Destination",
+      9:  "Unison Voices",
+      10: "Unison Detune",
+      11: "Unison Pan",
+      12: "Oscillator Sync",
+      13: "Ring Modulation",
+      14: "Oscillator 3 Mix",
+      15: "Noise Level",
+      16: "Sub Oscillator Level",
+      17: "Osc1 Shape",
+      18: "Osc1 Pulse-Width",
+      19: "Osc1 Wave Select",
+      20: "Osc1 Semitone",
+      21: "Osc1 Key-Tracking",
+      22: "Osc2 Shape",
+      23: "Osc2 Pulse-Width",
+      24: "Osc2 Wave Select",
+      25: "Osc2 Semitone",
+      26: "Osc2 Detune",
+      27: "Osc2 Key-Tracking",
+      28: "Filter Cutoff",
+      29: "Filter Resonance",
+      30: "Filter Mode",
+      31: "Filter Drive",
+      32: "Amp Env Attack",
+      33: "Amp Env Decay",
+      34: "Amp Env Sustain",
+      35: "Amp Env Release",
+      36: "Filter Env Attack",
+      37: "Filter Env Decay",
+      38: "Filter Env Sustain",
+      39: "Filter Env Release",
+      40: "LFO1 Rate",
+      41: "LFO1 Shape",
+      42: "LFO1 Depth",
+      43: "LFO1 Destination",
+      44: "LFO2 Rate",
+      45: "LFO2 Shape",
+      46: "LFO2 Depth",
+      47: "LFO2 Destination",
+      48: "Chorus Mix",
+      49: "Chorus Rate",
+      50: "Chorus Depth",
+      51: "Chorus Feedback",
+      52: "Delay Mix",
+      53: "Delay Time",
+      54: "Delay Feedback",
+      55: "Delay Sync",
+      56: "Arpeggiator On/Off",
+      57: "Arp Rate",
+      58: "Arp Mode",
+      59: "Arp Gate",
+      60: "LFO1 Env Mode",
+      61: "LFO2 Env Mode",
+      62: "Filter Env Intensity",
+      63: "Amp Env Intensity",
+      64: "LFO1 KeyFollow",
+65: "LFO1 Phase",
+66: "LFO1 Envelope Mode",
+67: "LFO2 KeyFollow",
+68: "LFO2 Phase",
+69: "LFO2 Envelope Mode",
+70: "LFO3 KeyFollow",
+71: "LFO3 Phase",
+72: "LFO3 Envelope Mode",
+73: "Oscillator 1 Slope",
+74: "Oscillator 2 Slope",
+75: "Oscillator 3 Slope",
+76: "Osc Mix Balance",
+77: "Ring Modulation",
+78: "FM Amount",
+79: "FM Destination",
+80: "Pitch Mod Source 1",
+81: "Pitch Mod Source 2",
+82: "Pitch Mod Amount 1",
+83: "Pitch Mod Amount 2",
+84: "Osc1 Key-Tracking",
+85: "Osc2 Key-Tracking",
+86: "Osc3 Key-Tracking",
+87: "Osc1 Semitone",
+88: "Osc2 Semitone",
+89: "Osc3 Semitone",
+90: "Osc1 Detune",
+91: "Osc2 Detune",
+92: "Osc3 Detune",
+93: "Osc1 Shape",
+94: "Osc2 Shape",
+95: "Osc3 Shape",
+96: "Filter Balance",
+97: "Filter Saturation",
+98: "Filter Env Curve",
+99: "Filter Env Depth",
+100: "Filter Env Velocity",
+101: "Amp Env Curve",
+102: "Amp Env Velocity",
+103: "Filter Keytrack",
+104: "Filter Drive",
+105: "Filter Slope",
+106: "Filter Input Select",
+107: "Chorus Type",
+108: "Chorus Mix",
+109: "Chorus Rate",
+110: "Chorus Depth",
+111: "Chorus Feedback",
+112: "Delay Type",
+113: "Delay Clock Mode",
+114: "Delay Ping-Pong",
+115: "Delay High-Cut",
+116: "Delay Low-Cut",
+117: "Reverb Mix",
+118: "Reverb Time",
+119: "Reverb High-Cut",
+120: "Reverb Room Size",
+121: "Distortion Type",
+122: "Distortion Mix",
+123: "Distortion Drive",
+124: "Distortion Feedback",
+125: "Vocoder Band Select",
+126: "Vocoder Level",
+127: "Vocoder Modulator Select",
+128: "Osc3 Mode",    
+129: "Osc3 Shape",    
+130: "Osc3 Semitone",
+      // Not so sure on these ones
+      131: "Osc3 Detune",  132: "Osc3 Key-Tracking",133: "Noise Color",
+      134: "Bitcrusher Rate",135: "Bitcrusher Depth",136: "Comb Filter Frequency",
+      137: "Comb Filter Resonance",138: "Formant Filter Frequency",139: "Formant Filter Resonance",
+      158: "Delay Type",159: "Delay Clock Mode",160: "Delay Ping-Pong",
+      161: "Delay High-Cut",162: "Delay Low-Cut",163: "Chorus Type",164: "Chorus Feedback Mod",
+      165: "FX Mix",166: "FX Parameter 1",167: "FX Parameter 2",168: "FX Parameter 3",
+      169: "FX Parameter 4",170: "Master Tune",171: "Master Volume",172: "MIDI Channel",
+      173: "Velocity Curve",174: "Aftertouch Curve",175: "Portamento Curve",
+      176: "SysEx Receive Channel",177: "Total Level",178: "Unison Pan Spread",
+      // end of dodgy ones lol
+      179: "Unison Detune Spread",180: "Crossmod Depth",181: "FM Amount",
+      182: "FM Destination",
+      183: "Filter1 EnvAmt Velocity",    // B55
+184: "Resonance1 Velocity",        // B56
+185: "Resonance2 Velocity",        // B57
+186: "Amp Velocity",               // B60
+187: "Panorama Velocity",          // B61
+188: "Definable1 Single",          // B62
+189: "Definable2 Single",          // B63
+190: "Assign1 Source",             // B64
+191: "Assign1 Destination",        // B65
+192: "Assign1 Amount",             // B66
+193: "Assign2 Source",             // B67
+194: "Assign2 Destination1",       // B68
+195: "Assign2 Amount1",            // B69
+196: "Assign2 Destination2",       // B70
+197: "Assign2 Amount2",            // B71
+198: "Assign3 Source",             // B72
+199: "Assign3 Destination1",       // B73
+200: "Assign3 Amount1",            // B74
+201: "Assign3 Destination2",       // B75
+202: "Assign3 Amount2",            // B76
+203: "Assign3 Destination3",       // B77
+204: "Assign3 Amount3",            // B78
+205: "Param_205",                  // Placeholder (B79 - undocumented in listing)
+206: "Param_206",                  // Placeholder
+207: "Param_207",                  // Placeholder
+208: "Param_208",                  // Placeholder
+209: "Param_209",                  // Placeholder
+210: "Param_210",                  // Placeholder
+211: "Param_211",                  // Placeholder
+212: "Param_212",                  // Placeholder
+213: "Param_213",                  // Placeholder
+214: "Param_214",                  // Placeholder
+215: "Param_215",                  // Placeholder
+216: "Param_216",                  // Placeholder
+217: "Param_217",                  // Placeholder
+218: "Param_218",                  // Placeholder
+219: "Param_219",                  // Placeholder
+220: "Param_220",                  // Placeholder
+221: "Param_221",                  // Placeholder
+222: "Param_222",                  // Placeholder
+      223: "Aux Returns 1–4 Level",224: "User Bank Number",225: "User Patch Number",
+      226: "Patch Name Char 1",227: "Patch Name Char 2",228: "Patch Name Char 3",
+      229: "Patch Name Char 4",230: "Patch Name Char 5",231: "Patch Name Char 6",
+      232: "Patch Name Char 7",233: "Patch Name Char 8",234: "Patch Name Char 9",
+      235: "Patch Name Char 10",236: "Patch Name Char 11",237: "Patch Name Char 12",
+      238: "Patch Name Char 13",239: "Patch Name Char 14",240: "Patch Name Char 15",
+      241: "Patch Name Char 16",242: "Patch Name Char 17",243: "Patch Name Char 18",
+      244: "Patch Name Char 19",245: "Patch Name Char 20",246: "Patch Name Char 21",
+      247: "Patch Name Char 22",248: "Patch Name Char 23",249: "Patch Name Char 24",
+      250: "Patch Name Char 25",251: "Patch Name Char 26",252: "Patch Name Char 27",
+      253: "Patch Name Char 28",254: "Patch Name Char 29",255: "Patch Name Char 30"
+    };
+
+    // 2) Parse button handler
+    document.getElementById('parse').addEventListener('click', () => {
+      const out = document.getElementById('output');
+      out.textContent = '';
+      let json;
+      try {
+        json = JSON.parse(document.getElementById('input-json').value);
+      } catch (e) {
+        return out.textContent = '⚠️ Invalid JSON!';
+      }
+      if (!json.sysex) {
+        return out.textContent = '⚠️ JSON must have a "sysex" string property.';
+      }
+
+      // split, drop any leading F0/​F7 or header bytes, take first 256 data bytes
+      const bytes = json.sysex
+        .trim()
+        .split(/\s+/)
+        .map(h => parseInt(h, 16))
+        .slice(9, 9 + 256);
+
+      if (bytes.length < 256) {
+        return out.textContent = `⚠️ Expected ≥256 data bytes after header, got ${bytes.length}.`;
+      }
+
+      // build output
+      let lines = [];
+      for (let i = 0; i < 256; i++) {
+        const name = paramMap[i] || `Param_${i}`;
+        lines.push(`${i.toString().padStart(3, '0')}: ${name.padEnd(30)} = ${bytes[i]}`);
+      }
+      out.textContent = lines.join('\n');
+    });
+  </script>
+
+</body>
+</html>

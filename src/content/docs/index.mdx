@@ -1,0 +1,35 @@
+---
+title: Welcome to ForestWare
+description: Audio plugins for creative music production
+template: splash
+hero:
+  tagline: 🎶🌲 Audio plugins for creative music production 🌲🎶
+  image:
+    file: ../../assets/FPsy.png
+  actions:
+    - text: View Plugins
+      link: /plugins/overview/
+      icon: right-arrow
+    - text: Blog
+      link: /blog/
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Explore
+
+<CardGrid stagger>
+  <Card title="Prob Series" icon="random">
+    Probability-based audio effects: ProbCreepyArp, ProbStutter, ProbDropout, and more.
+  </Card>
+  <Card title="StaticPlethorium" icon="pulse">
+    Unique noise and texture generation for your productions.
+  </Card>
+  <Card title="SyncRoboVerb" icon="setting">
+    Synchronized robotic reverb with tempo-locked reflections.
+  </Card>
+  <Card title="Articles & InfoBits" icon="document">
+    Deep dives into synthesizer history and module explorations.
+  </Card>
+</CardGrid>

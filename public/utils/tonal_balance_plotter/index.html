@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tonal Balance Curve Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        input, h2 {
+            color: #e0e0e0;
+        }
+        canvas {
+            max-width: 100%;
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tonal Balance Curve Viewer</h2>
+    <input type="file" id="fileInput" accept=".json">
+    <canvas id="chart" height="100"></canvas>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const ctx = document.getElementById('chart').getContext('2d');
+        let chart;
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = JSON.parse(e.target.result);
+                const frequencies = data.frequencies_hz?.Value.map(d => d.Value);
+                const mid = data.normalized_mag_dB?.Value.map(d => d.Value);
+                const low = data.low_normalized_mag_dB?.Value.map(d => d.Value);
+                const high = data.high_normalized_mag_dB?.Value.map(d => d.Value);
+
+                if (!frequencies || !mid || !low || !high ||
+                    frequencies.length !== mid.length ||
+                    mid.length !== low.length ||
+                    mid.length !== high.length) {
+                    alert('JSON missing required data or lengths are inconsistent.');
+                    return;
+                }
+
+                const chartData = {
+                    labels: frequencies,
+                    datasets: [
+                        {
+                            label: 'Median (dB)',
+                            data: mid,
+                            borderColor: 'rgba(0, 200, 255, 1)',
+                            backgroundColor: 'rgba(0, 200, 255, 0.1)',
+                            fill: false,
+                            pointRadius: 0,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Upper Bound',
+                            data: high,
+                            borderColor: 'rgba(0, 0, 0, 0)',
+                            backgroundColor: 'rgba(0, 200, 255, 0.2)',
+                            pointRadius: 0,
+                            fill: '+1'
+                        },
+                        {
+                            label: 'Lower Bound',
+                            data: low,
+                            borderColor: 'rgba(0, 0, 0, 0)',
+                            backgroundColor: 'rgba(0, 200, 255, 0.2)',
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                };
+
+                const chartOptions = {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'logarithmic',
+                            title: {
+                                display: true,
+                                text: 'Frequency (Hz)',
+                                color: '#e0e0e0'
+                            },
+                            ticks: {
+                                callback: (value) => Number(value).toLocaleString(),
+                                color: '#e0e0e0',
+                                maxRotation: 45,
+                                minRotation: 45
+                            },
+                            grid: {
+                                color: '#333'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Magnitude (dB)',
+                                color: '#e0e0e0'
+                            },
+                            ticks: {
+                                color: '#e0e0e0'
+                            },
+                            grid: {
+                                color: '#333'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    }
+                };
+
+                if (chart) {
+                    chart.destroy();
+                }
+                chart = new Chart(ctx, {
+                    type: 'line',
+                    data: chartData,
+                    options: chartOptions
+                });
+            };
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>

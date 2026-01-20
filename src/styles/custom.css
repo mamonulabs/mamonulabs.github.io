@@ -1,0 +1,102 @@
+/* Dark & Moody ForestWare Theme */
+
+:root {
+  --sl-color-accent-low: #1a472a;
+  --sl-color-accent: #2d5a3d;
+  --sl-color-accent-high: #4a7c5d;
+  --sl-color-white: #e8e8e8;
+  --sl-color-gray-1: #d4d4d4;
+  --sl-color-gray-2: #a3a3a3;
+  --sl-color-gray-3: #737373;
+  --sl-color-gray-4: #404040;
+  --sl-color-gray-5: #262626;
+  --sl-color-gray-6: #171717;
+  --sl-color-black: #0a0a0a;
+  --sl-color-bg: #0d0d0d;
+  --sl-color-bg-nav: #121212;
+  --sl-color-bg-sidebar: #0f0f0f;
+  --sl-color-hairline-light: #2a2a2a;
+  --sl-color-hairline-shade: #1a1a1a;
+}
+
+:root[data-theme='light'] {
+  /* Force dark theme always for moody feel */
+  --sl-color-accent-low: #1a472a;
+  --sl-color-accent: #2d5a3d;
+  --sl-color-accent-high: #4a7c5d;
+  --sl-color-white: #e8e8e8;
+  --sl-color-gray-1: #d4d4d4;
+  --sl-color-gray-2: #a3a3a3;
+  --sl-color-gray-3: #737373;
+  --sl-color-gray-4: #404040;
+  --sl-color-gray-5: #262626;
+  --sl-color-gray-6: #171717;
+  --sl-color-black: #0a0a0a;
+  --sl-color-bg: #0d0d0d;
+  --sl-color-bg-nav: #121212;
+  --sl-color-bg-sidebar: #0f0f0f;
+}
+
+/* Hide theme toggle since we're always dark */
+starlight-theme-select {
+  display: none;
+}
+
+/* Moody green glow on links */
+a:hover {
+  text-shadow: 0 0 8px rgba(74, 124, 93, 0.6);
+}
+
+/* Subtle forest gradient on header */
+header.header {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a2f1a 100%);
+  border-bottom: 1px solid #2d5a3d33;
+}
+
+/* Code blocks with forest tint */
+pre {
+  background: #0a1a0f !important;
+  border: 1px solid #2d5a3d33;
+}
+
+/* Sidebar active item glow */
+[aria-current="page"] {
+  background: linear-gradient(90deg, #1a472a44 0%, transparent 100%);
+  border-left: 2px solid #4a7c5d;
+}
+
+/* Card styling */
+.card {
+  background: #121212;
+  border: 1px solid #2d5a3d33;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: #4a7c5d;
+  box-shadow: 0 4px 20px rgba(45, 90, 61, 0.2);
+}
+
+/* Hero section enhancement */
+.hero {
+  background: radial-gradient(ellipse at center, #1a2f1a 0%, #0d0d0d 70%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d5a3d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a7c5d;
+}
