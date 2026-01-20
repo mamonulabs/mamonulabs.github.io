@@ -1,40 +1,46 @@
-/* Dark & Moody ForestWare Theme */
+/* Synthwave Glassmorphism Theme */
 
 :root {
-  --sl-color-accent-low: #1a472a;
-  --sl-color-accent: #2d5a3d;
-  --sl-color-accent-high: #4a7c5d;
-  --sl-color-white: #e8e8e8;
-  --sl-color-gray-1: #d4d4d4;
-  --sl-color-gray-2: #a3a3a3;
-  --sl-color-gray-3: #737373;
-  --sl-color-gray-4: #404040;
-  --sl-color-gray-5: #262626;
-  --sl-color-gray-6: #171717;
-  --sl-color-black: #0a0a0a;
-  --sl-color-bg: #0d0d0d;
-  --sl-color-bg-nav: #121212;
-  --sl-color-bg-sidebar: #0f0f0f;
-  --sl-color-hairline-light: #2a2a2a;
-  --sl-color-hairline-shade: #1a1a1a;
+  --sl-color-accent-low: #2d1b4e;
+  --sl-color-accent: #ff2a6d;
+  --sl-color-accent-high: #ff6b9d;
+  --sl-color-white: #f0e6ff;
+  --sl-color-gray-1: #d4c6e8;
+  --sl-color-gray-2: #a89cc4;
+  --sl-color-gray-3: #7a6f96;
+  --sl-color-gray-4: #4a4260;
+  --sl-color-gray-5: #2a2440;
+  --sl-color-gray-6: #1a1428;
+  --sl-color-black: #0d0a14;
+  --sl-color-bg: #0d0a14;
+  --sl-color-bg-nav: rgba(13, 10, 20, 0.7);
+  --sl-color-bg-sidebar: rgba(26, 20, 40, 0.6);
+  --sl-color-hairline-light: #3d2a5a;
+  --sl-color-hairline-shade: #1a1428;
+  
+  /* Custom synthwave colors */
+  --synth-pink: #ff2a6d;
+  --synth-cyan: #05d9e8;
+  --synth-purple: #7b2cbf;
+  --synth-yellow: #f9c80e;
+  --synth-blue: #01012b;
 }
 
 :root[data-theme='light'] {
-  /* Force dark theme always for moody feel */
-  --sl-color-accent-low: #1a472a;
-  --sl-color-accent: #2d5a3d;
-  --sl-color-accent-high: #4a7c5d;
-  --sl-color-white: #e8e8e8;
-  --sl-color-gray-1: #d4d4d4;
-  --sl-color-gray-2: #a3a3a3;
-  --sl-color-gray-3: #737373;
-  --sl-color-gray-4: #404040;
-  --sl-color-gray-5: #262626;
-  --sl-color-gray-6: #171717;
-  --sl-color-black: #0a0a0a;
-  --sl-color-bg: #0d0d0d;
-  --sl-color-bg-nav: #121212;
-  --sl-color-bg-sidebar: #0f0f0f;
+  --sl-color-accent-low: #2d1b4e;
+  --sl-color-accent: #ff2a6d;
+  --sl-color-accent-high: #ff6b9d;
+  --sl-color-white: #f0e6ff;
+  --sl-color-gray-1: #d4c6e8;
+  --sl-color-gray-2: #a89cc4;
+  --sl-color-gray-3: #7a6f96;
+  --sl-color-gray-4: #4a4260;
+  --sl-color-gray-5: #2a2440;
+  --sl-color-gray-6: #1a1428;
+  --sl-color-black: #0d0a14;
+  --sl-color-bg: #0d0a14;
+  --sl-color-bg-nav: rgba(13, 10, 20, 0.7);
+  --sl-color-bg-sidebar: rgba(26, 20, 40, 0.6);
 }
 
 /* Hide theme toggle since we're always dark */
@@ -42,61 +48,195 @@ starlight-theme-select {
   display: none;
 }
 
-/* Moody green glow on links */
-a:hover {
-  text-shadow: 0 0 8px rgba(74, 124, 93, 0.6);
+/* Synthwave gradient background */
+body {
+  background: 
+    linear-gradient(180deg, #0d0a14 0%, #1a0a2e 50%, #0d0a14 100%),
+    radial-gradient(ellipse at 50% 100%, rgba(123, 44, 191, 0.3) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
-/* Subtle forest gradient on header */
+/* Glassmorphism header */
 header.header {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a2f1a 100%);
-  border-bottom: 1px solid #2d5a3d33;
+  background: rgba(13, 10, 20, 0.6) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 42, 109, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Code blocks with forest tint */
-pre {
-  background: #0a1a0f !important;
-  border: 1px solid #2d5a3d33;
+/* Glassmorphism sidebar */
+nav.sidebar {
+  background: rgba(26, 20, 40, 0.5) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(5, 217, 232, 0.1);
 }
 
-/* Sidebar active item glow */
-[aria-current="page"] {
-  background: linear-gradient(90deg, #1a472a44 0%, transparent 100%);
-  border-left: 2px solid #4a7c5d;
-}
-
-/* Card styling */
-.card {
-  background: #121212;
-  border: 1px solid #2d5a3d33;
+/* Neon glow on links */
+a {
   transition: all 0.3s ease;
 }
 
-.card:hover {
-  border-color: #4a7c5d;
-  box-shadow: 0 4px 20px rgba(45, 90, 61, 0.2);
+a:hover {
+  color: var(--synth-cyan) !important;
+  text-shadow: 
+    0 0 5px rgba(5, 217, 232, 0.5),
+    0 0 20px rgba(5, 217, 232, 0.3);
 }
 
-/* Hero section enhancement */
+/* Gradient text for main headings */
+.content-panel h1,
+.sl-markdown-content h1 {
+  background: linear-gradient(135deg, var(--synth-pink) 0%, var(--synth-cyan) 50%, var(--synth-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+/* Neon border on code blocks */
+pre {
+  background: rgba(13, 10, 20, 0.8) !important;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(5, 217, 232, 0.3) !important;
+  box-shadow: 
+    0 0 10px rgba(5, 217, 232, 0.1),
+    inset 0 0 30px rgba(123, 44, 191, 0.05);
+}
+
+/* Sidebar active item - neon glow */
+[aria-current="page"] {
+  background: linear-gradient(90deg, rgba(255, 42, 109, 0.2) 0%, transparent 100%) !important;
+  border-left: 2px solid var(--synth-pink) !important;
+  box-shadow: -5px 0 15px rgba(255, 42, 109, 0.3);
+}
+
+/* Glassmorphism cards */
+.card,
+.sl-link-card {
+  background: rgba(26, 20, 40, 0.5) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 42, 109, 0.2) !important;
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.sl-link-card:hover {
+  border-color: var(--synth-cyan) !important;
+  box-shadow: 
+    0 8px 32px rgba(5, 217, 232, 0.2),
+    0 0 20px rgba(255, 42, 109, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Hero section with synthwave sun effect */
 .hero {
-  background: radial-gradient(ellipse at center, #1a2f1a 0%, #0d0d0d 70%);
+  background: 
+    radial-gradient(ellipse at 50% 120%, rgba(255, 42, 109, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(249, 200, 14, 0.2) 0%, transparent 30%),
+    linear-gradient(180deg, #0d0a14 0%, #1a0a2e 100%);
 }
 
-/* Scrollbar styling */
+/* Animated underline on nav links */
+.sidebar-content a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--synth-pink), var(--synth-cyan));
+  transition: width 0.3s ease;
+}
+
+.sidebar-content a:hover::after {
+  width: 100%;
+}
+
+/* Buttons with neon effect */
+button,
+.action {
+  background: rgba(255, 42, 109, 0.1) !important;
+  border: 1px solid var(--synth-pink) !important;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.action:hover {
+  background: rgba(255, 42, 109, 0.2) !important;
+  box-shadow: 
+    0 0 10px rgba(255, 42, 109, 0.4),
+    0 0 30px rgba(255, 42, 109, 0.2);
+}
+
+/* Focus states with neon glow */
+button:focus,
+a:focus,
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(5, 217, 232, 0.5);
+}
+
+/* Table styling */
+table {
+  background: rgba(26, 20, 40, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+th {
+  background: rgba(255, 42, 109, 0.1) !important;
+  border-bottom: 1px solid var(--synth-pink) !important;
+}
+
+/* Blockquote with neon accent */
+blockquote {
+  background: rgba(123, 44, 191, 0.1);
+  border-left: 3px solid var(--synth-purple);
+  backdrop-filter: blur(5px);
+}
+
+/* Scrollbar styling - synthwave */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: #0d0a14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2d5a3d;
+  background: linear-gradient(180deg, var(--synth-pink), var(--synth-purple));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4a7c5d;
+  background: linear-gradient(180deg, var(--synth-cyan), var(--synth-pink));
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 42, 109, 0.4);
+  color: #fff;
+}
+
+/* Retro CRT scan line effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 9999;
 }
