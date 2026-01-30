@@ -6,9 +6,19 @@ title: Articles & InfoBits
 
 This section contains articles and short info bits about audio design, synthesis techniques and plugin developer notes.
 
-- [The Development of The Minimoog](/plugins/articles/minimoog-development/)
-- [Wiard Noisering](/infobits/noisering/)
-- [F355 Morphing Dual LFO](/infobits/f355/)
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <Card title="The Development of The Minimoog" icon="document">
+    <a class="sl-card-link" href="/plugins/articles/minimoog-development/">Read article</a>
+  </Card>
+  <Card title="Wiard Noisering" icon="document">
+    <a class="sl-card-link" href="/infobits/noisering/">Read info</a>
+  </Card>
+  <Card title="F355 Morphing Dual LFO" icon="document">
+    <a class="sl-card-link" href="/infobits/f355/">Read info</a>
+  </Card>
+</CardGrid>
 
 [Back to Plugins](/plugins/overview/)
 
