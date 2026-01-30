@@ -137,6 +137,25 @@ pre {
   transform: translateY(-2px);
 }
 
+/* Adjust spacing so card body doesn't overlap the title when hovered */
+.card h3,
+.sl-link-card h3,
+.sl-card-link h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card p,
+.sl-link-card p,
+.sl-card-link p {
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.sl-card-link {
+  display: block;
+}
+
+
 /* Hero section with synthwave sun effect */
 .hero {
   background: 
