@@ -19,17 +19,24 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## Explore
 
-<CardGrid stagger>
-  <Card title="Prob Series" icon="random" href="/plugins/overview/">
-    Probability-based audio effects: ProbCreepyArp, ProbStutter, ProbDropout, and more.
-  </Card>
-  <Card title="StaticPlethorium" icon="pulse" href="/plugins/staticplethorium/">
-    Unique noise and texture generation for your productions.
-  </Card>
-  <Card title="SyncRoboVerb" icon="setting" href="/plugins/syncroboverb/">
-    Synchronized robotic reverb with tempo-locked reflections.
-  </Card>
-  <Card title="Articles & InfoBits" icon="document" href="/articles/">
-    Deep dives into synthesizer history and module explorations.
-  </Card>
-</CardGrid>
+<div class="sl-card-grid">
+  <a class="sl-link-card" href="/plugins/overview/">
+    <h3>Prob Series</h3>
+    <p>Probability-based audio effects: ProbCreepyArp, ProbStutter, ProbDropout, and more.</p>
+  </a>
+
+  <a class="sl-link-card" href="/plugins/staticplethorium/">
+    <h3>StaticPlethorium</h3>
+    <p>Unique noise and texture generation for your productions.</p>
+  </a>
+
+  <a class="sl-link-card" href="/plugins/syncroboverb/">
+    <h3>SyncRoboVerb</h3>
+    <p>Synchronized robotic reverb with tempo-locked reflections.</p>
+  </a>
+
+  <a class="sl-link-card" href="/articles/">
+    <h3>Articles & InfoBits</h3>
+    <p>Deep dives into synthesizer history and module explorations.</p>
+  </a>
+</div>
