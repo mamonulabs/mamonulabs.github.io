@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const faqs = [
+  {
+    question: "What platforms are supported?",
+    answer: "Our plugins are available as VST3, AU, and CLAP formats for macOS and Windows."
+  },
+  {
+    question: "Are the plugins free?",
+    answer: "Information about pricing and availability will be announced soon."
+  },
+  {
+    question: "How do I install the plugins?",
+    answer: "Installation instructions will be provided with each plugin download."
+  }
+];
+---
+<BaseLayout title="FAQ" description="Frequently asked questions about ForestWare plugins">
+  <Header />
+  <main class="pt-32 pb-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-cyan glow-cyan mb-8 text-center">Frequently Asked Questions</h1>
+      <div class="space-y-8">
+        {faqs.map((faq) => (
+          <div class="glass-strong rounded-2xl p-8 hover:box-glow-cyan transition-all duration-300">
+            <h2 class="font-display text-2xl font-bold text-synth-pink mb-4">{faq.question}</h2>
+            <p class="text-dark-100">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

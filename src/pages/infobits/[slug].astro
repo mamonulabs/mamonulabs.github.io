@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const infobits = await getCollection('infobits');
+  return infobits.map((infobit) => ({ params: { slug: infobit.slug } }));
+}
+
+const { slug } = Astro.params;
+const infobit = await getEntry('infobits', slug);
+const { Content } = await infobit.render();
+---
+<BaseLayout title={infobit.data.title} description={infobit.data.description}>
+  <Header />
+  <main class="pt-32 pb-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-pink glow-pink mb-4">{infobit.data.title}</h1>
+      <p class="text-xl text-dark-100 mb-12">{infobit.data.description}</p>
+      <div class="glass-strong p-8 rounded-2xl prose prose-invert prose-lg max-w-none prose-headings:text-synth-cyan prose-a:text-synth-pink prose-strong:text-forest-400 prose-img:rounded-xl prose-img:shadow-xl">
+        <Content />
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

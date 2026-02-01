@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const plugins = await getCollection('plugins');
+  return plugins.map((plugin) => ({ params: { slug: plugin.slug } }));
+}
+
+const { slug } = Astro.params;
+const plugin = await getEntry('plugins', slug);
+const { Content } = await plugin.render();
+---
+<BaseLayout title={plugin.data.name} description={plugin.data.description}>
+  <Header />
+  <main class="pt-32 pb-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="font-display text-6xl md:text-8xl font-bold text-synth-pink glow-pink">{plugin.data.name}</h1>
+      <p class="mt-4 text-2xl text-dark-100">{plugin.data.tagline}</p>
+    </div>
+
+    {plugin.data.features && plugin.data.features.length > 0 && (
+      <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+          <h2 class="font-display text-4xl font-bold text-forest-400 glow-forest mb-12">Features</h2>
+          <ol class="space-y-6">
+            {plugin.data.features.map((feature, i) => (
+              <li class="flex gap-6 glass p-6 rounded-xl hover:glass-strong transition-all duration-300">
+                <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-synth-cyan/20 border border-synth-cyan/40 rounded-full font-bold text-synth-cyan">{i + 1}</span>
+                <div>
+                  <h3 class="font-semibold text-lg text-synth-cyan">{feature.title}</h3>
+                  <p class="mt-1 text-dark-100">{feature.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-6 glass-strong p-8 rounded-2xl prose prose-invert prose-lg max-w-none prose-headings:text-synth-cyan prose-a:text-synth-pink prose-strong:text-forest-400">
+        <Content />
+      </div>
+    </section>
+
+    <section class="py-16 text-center">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="font-display text-2xl font-bold text-forest-400 glow-forest mb-6">Available for</h2>
+        <div class="flex flex-wrap gap-3 justify-center">
+          {plugin.data.platforms.map((p) => (
+            <span class="px-4 py-2 glass border border-synth-purple/40 text-synth-cyan text-sm font-medium rounded-full hover:box-glow-cyan transition-all duration-300">{p}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+const currentYear = new Date().getFullYear();
+const footerSections = [
+  { title: 'Products', links: [
+    { label: 'All Plugins', href: '/plugins' },
+    { label: 'Downloads', href: '/downloads' },
+  ]},
+  { title: 'Learn', links: [
+    { label: 'Articles', href: '/articles' },
+    { label: 'InfoBits', href: '/infobits' },
+    { label: 'Blog', href: '/blog' },
+  ]},
+  { title: 'Social', links: [
+    { label: 'Discord', href: '#' },
+    { label: 'YouTube', href: '#' },
+    { label: 'GitHub', href: 'https://github.com/mamonulabs' },
+  ]},
+];
+---
+<footer class="glass-strong border-t border-synth-purple/30 py-16 mt-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div class="col-span-2 md:col-span-1">
+        <span class="font-display text-2xl font-bold text-synth-cyan glow-cyan">🌲 ForestWare</span>
+        <p class="mt-4 text-sm text-dark-200">Audio plugins for creative music production.</p>
+      </div>
+      {footerSections.map((section) => (
+        <div>
+          <h3 class="font-semibold text-forest-400 mb-4">{section.title}</h3>
+          <ul class="space-y-2">
+            {section.links.map((link) => (
+              <li><a href={link.href} class="text-sm text-dark-100 hover:text-synth-pink transition-colors">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="border-t border-dark-500 pt-8 text-sm text-dark-300">
+      <p>&copy; {currentYear} ForestWare. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
