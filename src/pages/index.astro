@@ -6,7 +6,7 @@ import Hero from '../components/sections/Hero.astro';
 import PluginCard from '../components/ui/PluginCard.astro';
 import { getCollection } from 'astro:content';
 
-const plugins = await getCollection('plugins');
+const plugins = await getCollection('plugins', ({ data }) => data.published !== false);
 const sortedPlugins = plugins.sort((a, b) => a.data.order - b.data.order);
 ---
 <BaseLayout title="Audio Plugins for Creative Music Production">
