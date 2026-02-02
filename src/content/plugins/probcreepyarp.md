@@ -3,6 +3,7 @@ name: "ProbCreepyArp"
 tagline: "Probabilistic arpeggiator with creepy, unpredictable patterns"
 description: "A probabilistic arpeggiator that creates creepy, unpredictable melodic patterns."
 platforms: ["VST3", "AU", "CLAP"]
+published: false
 order: 1
 features:
   - title: "Probability-based note triggering"
