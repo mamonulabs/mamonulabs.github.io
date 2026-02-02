@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
+import InterpolationVisualizer from '../../components/media/InterpolationVisualizer.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,6 +13,8 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const plugin = await getEntry('plugins', slug);
 const { Content } = await plugin.render();
+
+const hasVisualizer = slug === 'ostirustools';
 ---
 <BaseLayout title={plugin.data.name} description={plugin.data.description}>
   <Header />
@@ -45,6 +48,14 @@ const { Content } = await plugin.render();
         <Content />
       </div>
     </section>
+
+    {hasVisualizer && (
+      <section class="py-16">
+        <div class="max-w-6xl mx-auto px-6">
+          <InterpolationVisualizer />
+        </div>
+      </section>
+    )}
 
     <section class="py-16 text-center">
       <div class="max-w-4xl mx-auto px-6">

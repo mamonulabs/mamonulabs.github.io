@@ -15,7 +15,3 @@ features:
   - title: "Interactive algorithm visualizer"
     description: "Real-time visualization of interpolation curves with mathematical documentation for each algorithm."
 ---
-
-<div style="margin: 2rem 0; border: 1px solid #333; border-radius: 8px; overflow: hidden;">
-  <iframe src="/ostirustools-visualizer.html" style="width: 100%; height: 900px; border: none;" title="Interactive Interpolation Visualizer"></iframe>
-</div>
