@@ -3,7 +3,7 @@ title: "Mutable Instruments Warps"
 description: "A dual-input cross-modulation processor with seven distinct algorithms"
 ---
 
-<img src="/assets/img/warps.jpg" alt="Warps" style="max-width: 60%;" />
+<img src="/assets/img/warps.jpg" alt="Warps" style="height: 300px; width: auto;" />
 
 ---
 

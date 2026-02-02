@@ -3,7 +3,7 @@ title: "Wiard Noisering"
 description: "Wiard Noisering module information and history"
 ---
 
-![NR](/assets/img/NRFaceSml.jpg)
+<img src="/assets/img/NRFaceSml.jpg" alt="Wiard Noisering" style="height: 300px; width: auto;" />
 
 > "I always wondered what Mome Raths sound like when they outgrabe. Now I know. Thank you!" - Carol Lewis
 
