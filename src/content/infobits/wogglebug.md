@@ -233,7 +233,7 @@ The current Wogglebug excels at:
 
 ### Overview
 
-LWSS (Large Format Wiard Synth System) produces the Wogglebug in 5U format, making Grant Richter's design available for Moog Modular-style systems. This version brings the Wogglebug to the classic large-format modular ecosystem.
+LWSS (Lower West Side Studio) produces the Wogglebug in 5U format, making Grant Richter's design available for Moog Modular-style systems. This version brings the Wogglebug to the classic large-format modular ecosystem.
 
 ### Physical Specifications
 
