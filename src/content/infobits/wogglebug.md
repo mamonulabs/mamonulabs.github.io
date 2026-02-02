@@ -64,8 +64,6 @@ The module's design philosophy emphasized organic, self-evolving patches where r
 
 ## Frac Format Wogglebug (Wogglebug #3)
 
-<img src="/assets/img/frac-wogglebug.jpg" alt="Frac Format Wogglebug" style="max-width: 70%;" />
-
 ### Overview
 
 The Frac format Wogglebug (also known as Wogglebug #3) is an extremely rare version of the module produced by Make Noise in the Frac modular format. Frac is a compact modular synthesizer format that sits between Eurorack and the larger 5U systems.
@@ -103,7 +101,7 @@ The extreme rarity of this module makes it a sought-after piece for Frac system 
 
 ## Make Noise Richter Wogglebug (Eurorack V1)
 
-<img src="/assets/img/make-noise-richter-wogglebug.jpg" alt="Make Noise Richter Wogglebug" style="max-width: 70%;" />
+<img src="/assets/img/make-noise-wogglebug-v1.png" alt="Make Noise Richter Wogglebug" style="max-width: 70%;" />
 
 ### Overview
 
@@ -157,7 +155,7 @@ This version is prized by users who want maximum unpredictability and organic ra
 
 ## Make Noise Wogglebug (Current Eurorack Version)
 
-<img src="/assets/img/make-noise-wogglebug-current.jpg" alt="Make Noise Wogglebug Current Version" style="max-width: 70%;" />
+<img src="/assets/img/make-noise-wogglebug-v2.webp" alt="Make Noise Wogglebug Current Version" style="max-width: 70%;" />
 
 ### Overview
 
@@ -231,7 +229,7 @@ The current Wogglebug excels at:
 
 ## LWSS 5U Wogglebug
 
-<img src="/assets/img/lwss-5u-wogglebug.jpg" alt="LWSS 5U Wogglebug" style="max-width: 70%;" />
+<img src="/assets/img/lwss-wogglebug-5u.jpg" alt="LWSS 5U Wogglebug" style="max-width: 70%;" />
 
 ### Overview
 
