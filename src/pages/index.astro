@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import PluginCard from '../components/ui/PluginCard.astro';
+import { getCollection } from 'astro:content';
+
+const plugins = await getCollection('plugins');
+const sortedPlugins = plugins.sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Audio Plugins for Creative Music Production">
+  <Header />
+  <main class="pt-20">
+    <Hero
+      title="Audio plugins that inspire creativity"
+      subtitle="Probability-based effects and unique sound design tools for adventurous music producers."
+      primaryCta={{ label: "Explore Plugins", href: "/plugins" }}
+      secondaryCta={{ label: "Learn More", href: "/about" }}
+    />
+    <section class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold text-forest-400 glow-forest text-center mb-12">Our Plugins</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPlugins.map((plugin) => (
+            <PluginCard name={plugin.data.name} tagline={plugin.data.tagline} slug={plugin.slug} image={plugin.data.image} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

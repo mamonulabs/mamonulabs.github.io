@@ -1,0 +1,30 @@
+---
+const navItems = [
+  { label: 'Plugins', href: '/plugins' },
+  { label: 'Downloads', href: '/downloads' },
+  { label: 'InfoBits', href: '/infobits' },
+  { label: 'Support', href: '/support' },
+  { label: 'FAQ', href: '/faq' },
+];
+---
+<header class="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-synth-cyan/20">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-display text-2xl font-bold text-synth-cyan glow-cyan hover:text-synth-cyan-light transition-colors">
+      🌲 ForestWare
+    </a>
+    <ul class="hidden md:flex items-center gap-8">
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href} class="text-dark-100 hover:text-synth-pink hover:glow-pink font-medium transition-all duration-300">
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <button class="md:hidden text-synth-cyan" aria-label="Open menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+</header>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import PluginCard from '../../components/ui/PluginCard.astro';
+import { getCollection } from 'astro:content';
+
+const plugins = await getCollection('plugins');
+const sorted = plugins.sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Plugins">
+  <Header />
+  <main class="pt-32 pb-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-cyan glow-cyan text-center mb-4">Plugins</h1>
+      <p class="text-xl text-dark-100 text-center mb-16">Audio effects for creative music production</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sorted.map((plugin) => (
+          <PluginCard name={plugin.data.name} tagline={plugin.data.tagline} slug={plugin.slug} image={plugin.data.image} />
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

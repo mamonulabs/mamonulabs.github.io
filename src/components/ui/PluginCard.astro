@@ -1,0 +1,20 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  slug: string;
+  image?: string;
+}
+const { name, tagline, slug, image } = Astro.props;
+---
+<a href={`/plugins/${slug}`} class="group block glass rounded-2xl overflow-hidden hover:glass-strong hover:box-glow-cyan transition-all duration-300">
+  {image && (
+    <div class="aspect-video bg-dark-800/50 overflow-hidden">
+      <img src={image} alt={name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+    </div>
+  )}
+  <div class="p-6">
+    <h3 class="font-display text-2xl font-bold text-synth-cyan group-hover:glow-cyan transition-all duration-300">{name}</h3>
+    <p class="mt-2 text-dark-100">{tagline}</p>
+  </div>
+</a>

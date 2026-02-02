@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+<BaseLayout title="Support" description="Get support for ForestWare plugins">
+  <Header />
+  <main class="pt-32 pb-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-neutral-900 mb-8 text-center">Support</h1>
+      <div class="prose prose-neutral prose-lg max-w-none">
+        <p class="text-xl text-neutral-600 text-center mb-8">Need help? Reach out through our community channels.</p>
+        <div class="text-center space-y-4">
+          <p><a href="https://github.com/mamonulabs" class="text-primary-600 hover:text-primary-700 font-semibold">GitHub</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
