@@ -9,364 +9,102 @@ description: "From Wiard's original design to modern interpretations across mult
 
 ## Introduction
 
-The Wogglebug is a legendary random voltage generator originally designed by Grant Richter of Wiard Synthesizers. Inspired by Don Buchla's Model 265 "Source of Uncertainty," the Wogglebug expanded upon the classic "smooth" and "stepped" random voltage sources to include unique "woggled" control voltages—stepped voltages with decaying sinusoidal edges that create otherworldly modulation characteristics.
+The Wogglebug is a legendary random voltage generator originally designed by Grant Richter of Wiard Synthesizers. Inspired by Don Buchla's Model 265 "Source of Uncertainty," the Wogglebug expanded upon classic "smooth" and "stepped" random voltage sources to include unique "woggled" control voltages—stepped voltages with decaying sinusoidal edges that create otherworldly modulation characteristics.
 
-Over the years, the Wogglebug has been produced in multiple formats, each bringing Grant Richter's innovative design to different modular synthesizer ecosystems.
-
----
-
-## Original Wiard 300 Series Wogglebug (Model 371)
-
-<img src="/assets/img/wiard-wogglebug-300.jpg" alt="Wiard 300 Series Wogglebug" style="max-width: 60%;" />
-
-### Overview
-
-The original Wiard Wogglebug was introduced as part of the Wiard 300 series format in 1999. Grant Richter designed this module to be a complete random voltage system that could function as the heart of self-evolving patches.
-
-### Physical Specifications
-
-- **Format**: Wiard 300 series (6U high, 19" rack-mounted)
-- **Configuration**: Model 371 Dual Wogglebug Module
-- **Construction**: Single mechanical module containing equivalent functionality of 18 electrical modules
-
-### Functionality
-
-The original Wogglebug features a comprehensive random voltage system:
-
-**Audio Oscillators**:
-- Four permanently coupled audio VCOs
-- Ring modulation capabilities
-- Multiple audio outputs for complex timbral generation
-
-**Random Voltage Outputs**:
-- **Stepped Random CV**: Quantized random voltages that jump between discrete values
-- **Smooth Random CV**: Continuously varying random voltages with lag processing
-- **Woggle Random CV**: The signature "woggled" voltages—stepped values with decaying sinusoidal edges
-- Voltage range: 0 to 10 volts
-
-**Control Inputs**:
-- 3 control voltage inputs for influencing random behavior
-- External clock input for synchronization
-- Influence and disturbance controls
-
-**Clock and Trigger System**:
-- Internal clock generator with wide frequency range
-- Random burst trigger generator
-- Phase Lock Loop (PLL) for complex clocking behaviors
-
-### Historical Significance
-
-The Wiard 300 series Wogglebug represented a significant expansion of Buchla's random voltage concepts. By adding the unique "woggle" characteristic and integrating multiple VCOs into a single module, Richter created a self-contained complex random voltage ecosystem that could generate both modulation sources and audio signals.
-
-The module's design philosophy emphasized organic, self-evolving patches where randomness could be shaped and influenced but never completely tamed—a hallmark of Grant Richter's approach to synthesizer design.
+Over the years, the design has been produced in multiple formats, from the original Wiard 300 series through Frac, Eurorack, and 5U systems, making Richter's innovative design accessible across different modular ecosystems.
 
 ---
 
-## Frac Format Wogglebug (Wogglebug #3)
+## Original Wiard 300 Series Wogglebug
 
-### Overview
+<img src="/assets/img/wiard-wogglebug-300.jpg" alt="Wiard 300 Series Wogglebug" style="height: 300px; width: auto;" />
 
-The Frac format Wogglebug (also known as Wogglebug #3) is an extremely rare version of the module produced by Make Noise in the Frac modular format. Frac is a compact modular synthesizer format that sits between Eurorack and the larger 5U systems.
+The original Wiard Wogglebug (Model 371) was introduced in 1999 as part of the Wiard 300 series—a 6U high, 19" rack-mounted format. Grant Richter designed this module to be a complete random voltage ecosystem that could function as the heart of self-evolving patches.
 
-### Physical Specifications
+The module contains four permanently coupled audio VCOs with ring modulation capabilities alongside a comprehensive random voltage system. It produces stepped, smooth, and "woggled" random CVs in the 0-10V range, plus random burst triggers and clock generation with Phase Lock Loop capabilities. The single mechanical module contains equivalent functionality of 18 electrical modules.
 
-- **Format**: Frac (1U and 2U heights)
-- **Width**: Approximately 2 Frac units (fu)
-- **Availability**: Very rare, limited production run
-
-### Functionality
-
-The Frac Wogglebug maintains the core functionality of the original Wiard design:
-
-**Core Functions**:
-- Clock Generator with internal oscillator
-- CV Modulation outputs (Stepped, Smooth, Woggle)
-- Integrated Oscillator section
-- Random voltage generation
-- Ring Modulator
-- Sample and Hold circuit
-
-**Signal Generation**:
-- Control voltages: 0 to 10 volts range
-- Multiple independent random outputs
-- Audio-rate capabilities for sound generation
-
-### Design Notes
-
-The Frac version is noted to be closest to the original Make Noise Wiard implementation rather than the later Eurorack versions. Due to the compact Frac format, some consideration was given to creating an even more compact 1fu layout, though this would have required omitting some features.
-
-The extreme rarity of this module makes it a sought-after piece for Frac system users and collectors.
+The original represents Richter's expansion of Buchla's uncertainty concepts, adding the unique "woggle" characteristic and integrating multiple VCOs into one self-contained complex random voltage ecosystem.
 
 ---
 
-## Make Noise Richter Wogglebug (Eurorack V1)
+## Frac Format Wogglebug
 
-<img src="/assets/img/make-noise-wogglebug-v1.png" alt="Make Noise Richter Wogglebug" style="max-width: 60%;" />
+The Frac format Wogglebug (Wogglebug #3) is an extremely rare version produced by Make Noise in the compact Frac modular format. Approximately 2 Frac units wide, it maintains the core functionality of the original Wiard design including clock generation, CV modulation outputs (stepped, smooth, woggle), integrated oscillators, and ring modulation.
 
-### Overview
-
-Released around 2014, the Richter Wogglebug was Make Noise's first Eurorack adaptation of Grant Richter's design, produced with his permission as a tribute to the original Wiard modules. This version is often referred to as "V1" to distinguish it from later iterations.
-
-### Physical Specifications
-
-- **Format**: Eurorack (3U)
-- **Width**: 10HP
-- **Depth**: 24mm
-- **Power Consumption**: +12V: 50mA, -12V: 40mA
-
-### Functionality
-
-**Random Audio Section**:
-- **Smooth VCO Audio**: Continuously varying audio oscillator
-- **Woggle VCO Audio**: Audio oscillator with characteristic woggle modulation
-- **Ring Modulated Output**: VCOs ring modded together for complex timbres
-
-**Random CV Section**:
-- **Stepped Random CV**: Quantized random control voltages
-- **Smooth Random CV**: Continuously varying random voltages
-- **Woggle Random CV**: Stepped voltages with decaying sinusoidal edges
-- Voltage Range: 0 to 10 volts
-
-**Random Clock Section**:
-- **Random Burst Triggers**: Irregular trigger patterns
-- **Internal Clock**: Wide frequency range
-- **Sample & Hold Circuit**: Synchronized to internal clock
-
-**Control Interface**:
-- **Speed Control**: Sets internal clock rate
-- **Chaos Control**: Influences randomness and unpredictability
-- **Woggle Knob**: Adjusts character of woggle outputs
-- **Rate CV Input**: External clock input and CV control
-- **Influence Input**: CV input affecting all random outputs
-- **Disturb Button**: Manual intervention to disrupt patterns
-
-### Characteristics
-
-The original Richter Wogglebug has "more of a mind of its own" and can delightfully misbehave. It features:
-
-- **VCO Range Controls**: Individual range knobs for each of the two VCOs
-- **Less Stable Clock**: More organic, slightly unpredictable timing
-- **Independent Character**: Tends toward more chaotic, less "musical" behavior
-- **Original Woggle Algorithm**: Grant Richter's initial implementation
-
-This version is prized by users who want maximum unpredictability and organic randomness in their patches.
+This version is noted to be closest to the original Make Noise Wiard implementation rather than later Eurorack versions. Due to the Frac format's size constraints, some consideration was given to even more compact layouts, though this would have required omitting features. The extreme rarity makes it a sought-after piece for Frac system users and collectors.
 
 ---
 
-## Make Noise Wogglebug (Current Eurorack Version)
+## Make Noise Richter Wogglebug (V1)
 
-<img src="/assets/img/make-noise-wogglebug-v2.jpg" alt="Make Noise Wogglebug Current Version" style="max-width: 60%;" />
+<img src="/assets/img/make-noise-wogglebug-v1.png" alt="Make Noise Richter Wogglebug" style="height: 300px; width: auto;" />
 
-### Overview
+Released around 2014, the Richter Wogglebug was Make Noise's first Eurorack adaptation, produced with Grant Richter's permission as a tribute to the original. At 10HP and 24mm deep, it draws 50mA at +12V and 40mA at -12V.
 
-The current Make Noise Wogglebug represents a refined evolution of the Richter version, maintaining the core functionality while improving stability and musicality. This version is sometimes referred to as "V2" or simply the "new Wogglebug."
+The module generates seven random signals simultaneously across three sections. The Random Audio section provides smooth VCO audio, woggle VCO audio, and their ring-modulated combination. The Random CV section produces stepped, smooth, and woggle random voltages (0-10V). The Random Clock section generates random burst triggers with an internal clock and sample & hold circuit.
 
-### Physical Specifications
+Controls include Speed, Chaos, and Woggle knobs, plus Rate CV input, Influence input, and a Disturb button for manual intervention. This version includes individual range knobs for each VCO and has "more of a mind of its own"—prized by users who want maximum unpredictability and organic randomness.
 
-- **Format**: Eurorack (3U)
-- **Width**: 10HP
-- **Depth**: 24mm
-- **Power Consumption**: +12V: 50mA, -12V: 40mA
+---
 
-### Functionality
+## Make Noise Wogglebug (Current)
 
-The current Wogglebug maintains all seven random signal outputs:
+<img src="/assets/img/make-noise-wogglebug-v2.jpg" alt="Make Noise Wogglebug Current Version" style="height: 300px; width: auto;" />
 
-**Random Audio Outputs** (3 outputs):
-1. **Smooth VCO Audio**: Continuously varying oscillator with new "Sharktooth" waveform
-2. **Woggle VCO Audio**: Characteristic woggled audio oscillator
-3. **VCOs Ring Modded**: Complex timbral output from ring modulation
+The current Wogglebug represents a refined evolution, maintaining core functionality while improving stability and musicality. Same physical specs as V1 (10HP, 24mm deep, 50mA +12V / 40mA -12V) but with significant improvements.
 
-**Random CV Outputs** (3 outputs):
-1. **Stepped Random CV**: Quantized random voltages (0-10V)
-2. **Smooth Random CV**: Smoothly varying random voltages (0-10V)
-3. **Woggle Random CV**: Signature woggle modulation (0-10V)
+The module still generates seven random signals: three audio outputs (smooth VCO with new Sharktooth waveform, woggle VCO, and ring mod) plus three CV outputs (stepped, smooth, and woggle 0-10V) and random burst triggers. The clock is now much more stable with the widest frequency range yet—up to approximately 200Hz, allowing outputs to function as analog/digital noise sources.
 
-**Random Clock Output**:
-- **Random Burst**: Improved, more active trigger patterns
+Key improvements include the new Sharktooth waveform for the smooth VCO, greater influence from the Influence input, more active burst output, and fixed (optimized) VCO ranges rather than individual range controls. The clock can now be freed by external clock input or Disturb button while maintaining its specified rate, and it's no longer locked to the internal sample & hold circuit.
 
-**Control Interface**:
-- **Speed/Chaos Control**: Combined control for clock rate and system chaos
-  - Counterclockwise: Slows system, smooths Smooth CV response
-  - Clockwise: Quickens system, adds jitter to Smooth CV
-- **Woggle Control**: Adjusts woggle character and influence
-- **Rate CV Input**: External clock or CV control (clock range up to ~200Hz)
-- **Influence Input**: Enhanced CV input with greater effect on all outputs
-- **Disturb Button**: Manual randomization trigger
-
-### Key Improvements Over V1
-
-**Enhanced Clock System**:
-- Much more stable clock output
-- Widest frequency range yet (up to approximately 200Hz)
-- Clock can reach audio rates, allowing outputs to function as analog/digital noise sources
-- Clock no longer locked to internal Sample & Hold circuit
-- Can be freed by external clock input or Disturb button while maintaining specified rate
-
-**New Features**:
-- **Sharktooth Waveform**: Brand new waveform for the Smooth VCO
-- **Improved Influence**: Influence input has greater effect on all aspects of the module
-- **More Active Burst**: Burst output triggers more frequently and responsively
-- **Fixed VCO Ranges**: No individual range knobs (ranges are optimized and fixed)
-
-**Character Differences**:
-- More of a "team player" for traditionally musical purposes
-- Better suited for melodic and rhythmic applications
-- More responsive to control inputs
-- Maintains randomness while being more predictable when needed
-
-### Use Cases
-
-The current Wogglebug excels at:
-- **Self-generating patches**: Can serve as the sole modulation source in a patch
-- **Controlled randomness**: Maintains organic character while being musically useful
-- **Complex modulation**: Three independent CV sources with related but distinct behaviors
-- **Audio generation**: VCOs can function as sound sources or complex modulators
-- **Rhythmic variation**: Burst output creates evolving trigger patterns
-- **Noise generation**: At high clock rates, outputs become various flavors of noise
+This version is more of a "team player" for traditionally musical purposes while maintaining organic character—better suited for melodic and rhythmic applications but still capable of beautiful chaos.
 
 ---
 
 ## LWSS 5U Wogglebug
 
-<img src="/assets/img/lwss-wogglebug-5u.jpg" alt="LWSS 5U Wogglebug" style="max-width: 60%;" />
+<img src="/assets/img/lwss-wogglebug-5u.jpg" alt="LWSS 5U Wogglebug" style="height: 300px; width: auto;" />
 
-### Overview
+Lower West Side Studio (LWSS) produces the Wogglebug in 5U format for Moog Modular-style systems. Priced around $346-365, this version brings the complete Wiard Wogglebug feature set to the classic large-format modular ecosystem.
 
-LWSS (Lower West Side Studio) produces the Wogglebug in 5U format, making Grant Richter's design available for Moog Modular-style systems. This version brings the Wogglebug to the classic large-format modular ecosystem.
+The 5U format offers native 0-10V operation matching vintage Moog specifications, larger panel space for comfortable knob spacing, and seamless integration with other 5U modules. It maintains all the random voltage generators (stepped, smooth, woggled), audio oscillators with ring modulation, and clocking/triggering capabilities including internal clock, external clock input, random burst generator, and Phase Lock Loop system.
 
-### Physical Specifications
-
-- **Format**: 5U (Moog Modular format)
-- **Height**: 5U (8.75 inches / 222mm)
-- **Construction**: Designed to fit in standard 5U modular cases
-- **Price**: Approximately $346-365 USD (varies by retailer)
-
-### Functionality
-
-The LWSS 5U Wogglebug maintains the complete Wiard Wogglebug feature set adapted for the 5U format:
-
-**Random Voltage Generators**:
-- Stepped random control voltages
-- Smooth random control voltages (with lag processing)
-- Woggle random control voltages (signature decaying sinusoid edges)
-- Output range: 0 to 10 volts (5U standard)
-
-**Audio Oscillators**:
-- Multiple VCO outputs
-- Ring modulation capabilities
-- Audio-rate modulation sources
-
-**Clocking and Triggering**:
-- Internal clock generator
-- External clock input
-- Random burst generator
-- Phase Lock Loop system
-
-**Control Section**:
-- Speed/Rate control
-- Influence input for CV control
-- Disturb function for manual intervention
-- Multiple CV inputs for external modulation
-
-### Integration with 5U Systems
-
-The 5U format offers several advantages for the Wogglebug:
-
-- **Voltage Compatibility**: Native 0-10V operation matches vintage Moog specifications
-- **Panel Space**: Larger format allows for clear labeling and comfortable knob spacing
-- **Classic Aesthetic**: Fits perfectly with vintage Moog systems and 5U modular setups
-- **Integration**: Works seamlessly with other 5U modules and sequencers
-
-### Use in Large Format Systems
-
-In 5U systems, the Wogglebug often serves as:
-- A primary source of organic modulation in self-patching systems
-- A chaotic element to add life to sequenced patterns
-- An audio source for experimental sound design
-- A "patch animator" that can breathe evolution into static patches
-
-The larger panel real estate of the 5U format makes the Wogglebug particularly comfortable to operate during live performance.
+The larger format makes the Wogglebug particularly comfortable for live performance, with clear labeling and generous panel real estate. In 5U systems, it often serves as a primary source of organic modulation, a chaotic element for sequenced patterns, or a "patch animator" that breathes evolution into static patches.
 
 ---
 
-## Comparative Overview
+## Comparison
 
-### Format Comparison
-
-| Version | Format | Width | Voltage | Availability | Best For |
-|---------|--------|-------|---------|--------------|----------|
-| **Wiard 300** | 6U (300 series) | ~6U | 0-10V | Vintage/Rare | Collectors, Wiard systems |
-| **Frac #3** | Frac | ~2fu | 0-10V | Extremely Rare | Frac systems, collectors |
-| **Richter (V1)** | Eurorack | 10HP | 0-10V | Discontinued | Maximum chaos, unpredictability |
-| **Current MN** | Eurorack | 10HP | 0-10V | Current Production | Musical randomness, modern systems |
-| **LWSS 5U** | 5U Moog | 5U | 0-10V | Current Production | Large format, vintage integration |
-
-### Philosophical Differences
-
-**Original Wiard Philosophy**: Maximum functionality in minimal space, embracing complexity and organic behavior.
-
-**Eurorack V1 (Richter)**: Faithful tribute with more "personality"—less predictable, more experimental.
-
-**Eurorack V2 (Current)**: Refined for musical use while maintaining organic character—better clock stability, more responsive control.
-
-**5U LWSS**: Classic presentation for large format systems, maintaining the complete Wiard feature set with vintage aesthetic.
+| Version | Format | Width | Voltage | Availability | Character |
+|---------|--------|-------|---------|--------------|-----------|
+| Wiard 300 | 6U | ~6U | 0-10V | Vintage/Rare | Original, comprehensive |
+| Frac #3 | Frac | ~2fu | 0-10V | Extremely Rare | Closest to original |
+| Richter (V1) | Eurorack | 10HP | 0-10V | Discontinued | Maximum chaos |
+| Current | Eurorack | 10HP | 0-10V | In Production | Musical, stable |
+| LWSS 5U | 5U | 5U | 0-10V | In Production | Classic format |
 
 ---
 
-## The Wogglebug Concept
+## The Woggle Concept
 
-### Core Design Principles
+All Wogglebug variants share Grant Richter's fundamental design philosophy: controlled chaos that can be influenced but not tamed, self-sufficiency as a complete random voltage ecosystem, audio integration at both CV and audio rates, and organic evolution where patches develop naturally over time.
 
-All Wogglebug variants share Grant Richter's fundamental design philosophy:
+The defining characteristic is the unique "woggle" output—a stepped random voltage with decaying sinusoidal edges. This falls between fully stepped and fully smooth randomness, offering more organic movement than pure stepped random, more defined events than pure smooth random, a "bouncing" quality that adds physicality to modulation, and complex harmonic content when used at audio rates.
 
-1. **Controlled Chaos**: Randomness that can be influenced but not completely tamed
-2. **Self-Sufficiency**: A complete random voltage ecosystem in a single module
-3. **Audio Integration**: Random sources that work at both CV and audio rates
-4. **Organic Evolution**: Patches that evolve naturally over time without external sequencing
-
-### The "Woggle" Character
-
-The defining characteristic across all versions is the unique "woggle" output—a stepped random voltage with decaying sinusoidal edges. This creates a distinctive modulation character that falls between fully stepped and fully smooth randomness, offering:
-
-- More organic movement than pure stepped random
-- More defined events than pure smooth random
-- A "bouncing" quality that adds physicality to modulation
-- Complex harmonic content when used at audio rates
-
-### Applications Across Formats
-
-Regardless of format, the Wogglebug excels at:
-
-- **Generative Music**: Creating self-evolving compositions
-- **Modulation Source**: Providing organic, unpredictable modulation
-- **Audio Source**: Generating complex timbres through oscillator coupling
-- **Rhythmic Generator**: Creating random but musically useful trigger patterns
-- **Patch Animator**: Adding life and variation to otherwise static patches
-- **Sound Design**: Exploring unpredictable sonic territories
+Regardless of format, the Wogglebug excels at generative music (self-evolving compositions), organic modulation (unpredictable but musical), audio generation (complex timbres through oscillator coupling), rhythmic patterns (random but musically useful triggers), patch animation (adding life to static setups), and experimental sound design.
 
 ---
 
-## Legacy and Impact
+## Legacy
 
 The Wogglebug has become one of the most influential random voltage generators in modular synthesis. Grant Richter's expansion of Buchla's uncertainty concepts has inspired countless modules and continues to influence modern random voltage generator designs.
 
-The module's availability across multiple formats—from the original Wiard 300 series through Frac, Eurorack, and 5U—demonstrates the enduring appeal of its core concept: randomness that feels alive, organic, and musical rather than purely mathematical or clinical.
-
-Whether in a vintage Wiard system, a compact Eurorack case, or a classic 5U setup, the Wogglebug continues to inspire musicians and sound designers to embrace controlled chaos as a creative force.
+Its availability across multiple formats—from the original Wiard 300 series through Frac, Eurorack, and 5U—demonstrates the enduring appeal of its core concept: randomness that feels alive, organic, and musical rather than purely mathematical. Whether in a vintage Wiard system, compact Eurorack case, or classic 5U setup, the Wogglebug continues to inspire musicians to embrace controlled chaos as a creative force.
 
 ---
 
-## Sources and Further Reading
-
-- [Wiard 300 Series Official Documentation](http://www.wiard.com/modular/300series/wogglebug/index.htm)
-- [Make Noise Wogglebug Official Page](https://www.makenoisemusic.com/modules/wogglebug/)
-- [Wiard and the Wogglebug – Patch & Tweak Article](https://www.patchandtweak.com/wiard-and-the-wogglebug-the-modular-visions-of-grant-richter/)
-- [LWSS Wiard Wogglebug – Noisebug](https://www.noisebug.net/products/lwss-wiard-wogglebug)
-- [Make Noise Wogglebug Manual (PDF)](https://www.makenoisemusic.com/wp-content/uploads/2024/03/wogglebugmanual.pdf)
-- [ModularGrid: Make Noise Wogglebug](https://modulargrid.net/e/make-noise-wogglebug)
-- [Perfect Circuit: Wogglebug Product Page](https://www.perfectcircuit.com/make-noise-wogglebug-1.html)
+*The Wogglebug represents Grant Richter's vision of randomness as a musical instrument—not just chaos, but a partner in the creative process.*
 
 ---
 
-*The Wogglebug represents Grant Richter's vision of randomness as a musical instrument—not just a source of chaos, but a partner in the creative process that can surprise, inspire, and elevate musical explorations.*
+**Sources**: [Wiard 300 Series](http://www.wiard.com/modular/300series/wogglebug/index.htm) • [Make Noise Wogglebug](https://www.makenoisemusic.com/modules/wogglebug/) • [Patch & Tweak Article](https://www.patchandtweak.com/wiard-and-the-wogglebug-the-modular-visions-of-grant-richter/) • [LWSS at Noisebug](https://www.noisebug.net/products/lwss-wiard-wogglebug)
