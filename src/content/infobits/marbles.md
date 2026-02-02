@@ -3,7 +3,7 @@ title: "Mutable Instruments Marbles"
 description: "A random sampler generating rhythms and voltages with controllable memory"
 ---
 
-<img src="/assets/img/marbles.jpg" alt="Marbles" style="height: 300px; width: auto;" />
+<img src="/assets/img/marbles.jpg" alt="Marbles" style="height: 500px; width: auto;" />
 
 > "Marbles is like having a jazz musician who never plays the same solo twice, but always stays in the pocket." - Anonymous Eurorack user
 

@@ -3,7 +3,7 @@ title: "Befaco Noise Plethora"
 description: "A three-channel digital noise generator with analog filtering"
 ---
 
-<img src="/assets/img/noise-plethora.jpg" alt="Noise Plethora" style="height: 300px; width: auto;" />
+<img src="/assets/img/noise-plethora.jpg" alt="Noise Plethora" style="height: 500px; width: auto;" />
 
 > "Like a steam-filled train station at peak rush hour with all the trains simultaneously coming to a screeching halt." - Waveform Magazine
 

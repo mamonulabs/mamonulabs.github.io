@@ -17,7 +17,7 @@ The circuit is based on a three-dimensional chaotic system producing voltages th
 
 ## 4HP Sloth Chaos
 
-<img src="/assets/img/nlc-sloth-4hp.jpg" alt="NLC 4HP Sloth Chaos" style="height: 300px; width: auto;" />
+<img src="/assets/img/nlc-sloth-4hp.jpg" alt="NLC 4HP Sloth Chaos" style="height: 500px; width: auto;" />
 
 The most compact version, offering a complete chaos generator in just 4HP and 16mm depth. The module can be built in four speed configurations: **Regular** (15 seconds), **Slow** (1 minute), **Slooow** (15 minutes), or **Sloooooow** (2+ hours). Speed is determined by component selection during building and cannot be changed afterward.
 
@@ -29,7 +29,7 @@ With minimal power draw and ultra-shallow depth, it's ideal for adding organic m
 
 ## Triple Sloth
 
-<img src="/assets/img/nlc-triple-sloth.jpg" alt="NLC Triple Sloth" style="height: 300px; width: auto;" />
+<img src="/assets/img/nlc-triple-sloth.jpg" alt="NLC Triple Sloth" style="height: 500px; width: auto;" />
 
 The flagship module combines three independent chaos circuits operating at different time scales in 8HP. **Torpor** cycles in 15-30 seconds, **Apathy** takes 60-90 seconds, and **Inertia** requires 30-40 minutes per orbit.
 
@@ -43,7 +43,7 @@ This is the complete Sloth solution: three time scales from fast to glacial, ele
 
 ## 1U Sloth Chaos
 
-<img src="/assets/img/nlc-sloth-1u.jpg" alt="NLC 1U Sloth Chaos" style="height: 300px; width: auto;" />
+<img src="/assets/img/nlc-sloth-1u.jpg" alt="NLC 1U Sloth Chaos" style="height: 500px; width: auto;" />
 
 The 1U version brings Sloth to compact cases in both Intellijel and Pulp Logic formats. Available in three speed variants—**Torpor** (15-20 seconds), **Apathy** (1-3 minutes), and **Inertia** (15-20 minutes)—each provides two chaos outputs and one injection input.
 

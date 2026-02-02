@@ -17,7 +17,7 @@ Over the years, the design has been produced in multiple formats, from the origi
 
 ## Original Wiard 300 Series Wogglebug
 
-<img src="/assets/img/wiard-wogglebug-300.jpg" alt="Wiard 300 Series Wogglebug" style="height: 300px; width: auto;" />
+<img src="/assets/img/wiard-wogglebug-300.jpg" alt="Wiard 300 Series Wogglebug" style="height: 500px; width: auto;" />
 
 The original Wiard Wogglebug (Model 371) was introduced in 1999 as part of the Wiard 300 series—a 6U high, 19" rack-mounted format. Grant Richter designed this module to be a complete random voltage ecosystem that could function as the heart of self-evolving patches.
 
@@ -37,7 +37,7 @@ This version is noted to be closest to the original Make Noise Wiard implementat
 
 ## Make Noise Richter Wogglebug (V1)
 
-<img src="/assets/img/make-noise-wogglebug-v1.png" alt="Make Noise Richter Wogglebug" style="height: 300px; width: auto;" />
+<img src="/assets/img/make-noise-wogglebug-v1.png" alt="Make Noise Richter Wogglebug" style="height: 500px; width: auto;" />
 
 Released around 2014, the Richter Wogglebug was Make Noise's first Eurorack adaptation, produced with Grant Richter's permission as a tribute to the original. At 10HP and 24mm deep, it draws 50mA at +12V and 40mA at -12V.
 
@@ -49,7 +49,7 @@ Controls include Speed, Chaos, and Woggle knobs, plus Rate CV input, Influence i
 
 ## Make Noise Wogglebug (Current)
 
-<img src="/assets/img/make-noise-wogglebug-v2.jpg" alt="Make Noise Wogglebug Current Version" style="height: 300px; width: auto;" />
+<img src="/assets/img/make-noise-wogglebug-v2.jpg" alt="Make Noise Wogglebug Current Version" style="height: 500px; width: auto;" />
 
 The current Wogglebug represents a refined evolution, maintaining core functionality while improving stability and musicality. Same physical specs as V1 (10HP, 24mm deep, 50mA +12V / 40mA -12V) but with significant improvements.
 
@@ -63,7 +63,7 @@ This version is more of a "team player" for traditionally musical purposes while
 
 ## LWSS 5U Wogglebug
 
-<img src="/assets/img/lwss-wogglebug-5u.jpg" alt="LWSS 5U Wogglebug" style="height: 300px; width: auto;" />
+<img src="/assets/img/lwss-wogglebug-5u.jpg" alt="LWSS 5U Wogglebug" style="height: 500px; width: auto;" />
 
 Lower West Side Studio (LWSS) produces the Wogglebug in 5U format for Moog Modular-style systems. Priced around $346-365, this version brings the complete Wiard Wogglebug feature set to the classic large-format modular ecosystem.
 
