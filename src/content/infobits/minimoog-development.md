@@ -1,11 +1,8 @@
 ---
 title: "The Development of The Minimoog"
-description: "The Development of The Minimoog by Jim Scott, Moog Music engineer during 1969-1977"
-publishedAt: 1970-01-01
+description: "A first-hand account of how the iconic synthesizer came to be, from concept to production"
+author: "Jim Scott"
 ---
-
-By: Jim Scott, Moog Music engineer during 1969-1977.
-
 
 The MiniMoog Synthesizer was conceived of and put into production at the original R A Moog Inc. company in
 Trumansburg, a small town 13 miles north of Ithaca New York. The entire operation, offices, engineering and
@@ -190,4 +187,6 @@ generators. Tom Rhea reports that this instrument sounds markedly better if it i
 style Modular keyboard, with the MicroMoog keyboard circuitry shut off.
 
 
-*Jim Scott*
+---
+
+*Jim Scott was a Moog Music engineer during 1969-1977.*

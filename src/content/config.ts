@@ -13,20 +13,15 @@ const pluginsCollection = defineCollection({
   }),
 });
 
-const articlesCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishedAt: z.date().optional(),
-  }),
-});
-
 const infobitsCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    heroImage: z.string().optional(),
+    author: z.string().optional(),
+    publishedAt: z.date().optional(),
+    readingTime: z.number().optional(),
   }),
 });
 
@@ -41,7 +36,6 @@ const blogCollection = defineCollection({
 
 export const collections = {
   plugins: pluginsCollection,
-  articles: articlesCollection,
   infobits: infobitsCollection,
   blog: blogCollection,
 };

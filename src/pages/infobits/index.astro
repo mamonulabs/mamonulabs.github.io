@@ -5,19 +5,63 @@ import Footer from '../../components/layout/Footer.astro';
 import { getCollection } from 'astro:content';
 
 const infobits = await getCollection('infobits');
+
+// Calculate reading time for each infobit
+const infobitsWithMeta = infobits.map(infobit => ({
+  ...infobit,
+  readingTime: infobit.data.readingTime || Math.ceil(infobit.body.split(/\s+/).length / 200)
+}));
 ---
 <BaseLayout title="InfoBits">
   <Header />
   <main class="pt-32 pb-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-purple glow-pink text-center mb-4">InfoBits</h1>
-      <p class="text-xl text-dark-100 text-center mb-16">Quick insights into synthesizer modules and gear</p>
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-synth-cyan border border-synth-cyan/30 rounded-full mb-6">
+          Knowledge Base
+        </span>
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-purple glow-pink mb-4">InfoBits</h1>
+        <p class="text-xl text-dark-100 max-w-2xl mx-auto">Deep dives into synthesizer modules, music technology, and gear history</p>
+      </div>
+
+      <!-- Cards Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {infobits.map((infobit) => (
-          <a href={`/infobits/${infobit.slug}`} class="group block glass rounded-2xl overflow-hidden hover:glass-strong hover:box-glow-pink transition-all duration-300 p-6">
-            <h3 class="font-display text-2xl font-bold text-synth-pink group-hover:glow-pink transition-all duration-300">{infobit.data.title}</h3>
-            <p class="mt-2 text-dark-100">{infobit.data.description}</p>
-            <span class="mt-4 inline-block text-forest-400 font-medium">Read more →</span>
+        {infobitsWithMeta.map((infobit) => (
+          <a
+            href={`/infobits/${infobit.slug}`}
+            class="group relative block glass rounded-2xl overflow-hidden hover:glass-strong transition-all duration-300"
+          >
+            <!-- Gradient accent bar -->
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-synth-pink via-synth-purple to-synth-cyan opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
+            <div class="p-6">
+              <!-- Title -->
+              <h3 class="font-display text-2xl font-bold text-synth-pink group-hover:glow-pink transition-all duration-300 mb-3">
+                {infobit.data.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-dark-100 mb-4 line-clamp-3">
+                {infobit.data.description}
+              </p>
+
+              <!-- Meta & CTA -->
+              <div class="flex items-center justify-between pt-4 border-t border-dark-500">
+                <span class="text-sm text-dark-300 flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {infobit.readingTime} min read
+                </span>
+                <span class="text-forest-400 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
           </a>
         ))}
       </div>
