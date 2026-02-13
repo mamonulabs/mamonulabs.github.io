@@ -3,6 +3,7 @@ name: "ProbDropoutAudio"
 tagline: "Tempo-synced probabilistic audio gate with deterministic patterns"
 description: "Create rhythmic gating and glitchy textures with probabilistic audio dropouts synced to your DAW tempo, featuring smooth transitions and repeatable patterns."
 platforms: ["VST3", "AU", "CLAP"]
+published: false
 order: 2
 features:
   - title: "Tempo-synced grid with adjustable drop probability"

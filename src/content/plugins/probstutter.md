@@ -3,6 +3,7 @@ name: "ProbStutter"
 tagline: "Probabilistic beat-slicer with tempo-synced stuttering"
 description: "Tempo-synced beat-slicer inspired by BBCut algorithms that captures and repeats audio slices with probabilistic triggering and deterministic randomness."
 platforms: ["VST3", "AU", "CLAP"]
+published: false
 order: 5
 features:
   - title: "Grid-synced probabilistic stutter triggering"
