@@ -1,0 +1,236 @@
+---
+// Auto-enhances inline <a> tags pointing to .mp3 files
+// into WaveSurfer.js waveform players. Drop into any page layout.
+---
+<script>
+import WaveSurfer from 'wavesurfer.js';
+
+let activePlayer: WaveSurfer | null = null;
+
+function formatTime(seconds: number): string {
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
+
+function enhanceMp3Links() {
+  const links = document.querySelectorAll<HTMLAnchorElement>('a[href$=".mp3"]');
+
+  links.forEach((link) => {
+    const src = link.getAttribute('href')!;
+    const label = link.textContent || src.split('/').pop()?.replace('.mp3', '') || 'Audio';
+
+    // Build player container
+    const container = document.createElement('span');
+    container.className = 'inline-audio-player';
+    container.innerHTML = `
+      <span class="iap-inner">
+        <button class="iap-btn" aria-label="Play ${label}">
+          <span class="material-symbols-outlined iap-play">play_arrow</span>
+          <span class="material-symbols-outlined iap-pause" style="display:none">pause</span>
+        </button>
+        <span class="iap-meta">
+          <span class="iap-label">${label}</span>
+          <span class="iap-wave"></span>
+        </span>
+        <span class="iap-time">0:00</span>
+      </span>
+    `;
+
+    link.replaceWith(container);
+
+    const waveEl = container.querySelector<HTMLElement>('.iap-wave')!;
+    const btn = container.querySelector<HTMLButtonElement>('.iap-btn')!;
+    const playIcon = container.querySelector<HTMLElement>('.iap-play')!;
+    const pauseIcon = container.querySelector<HTMLElement>('.iap-pause')!;
+    const timeEl = container.querySelector<HTMLElement>('.iap-time')!;
+
+    const ws = WaveSurfer.create({
+      container: waveEl,
+      url: src,
+      height: 28,
+      barWidth: 2,
+      barGap: 1,
+      barRadius: 0,
+      waveColor: 'rgba(255, 255, 255, 0.25)',
+      progressColor: '#0d59f2',
+      cursorColor: '#0d59f2',
+      cursorWidth: 1,
+      normalize: true,
+      interact: true,
+    });
+
+    ws.on('ready', () => {
+      timeEl.textContent = formatTime(ws.getDuration());
+    });
+
+    ws.on('audioprocess', () => {
+      timeEl.textContent = formatTime(ws.getCurrentTime());
+    });
+
+    ws.on('seeking', () => {
+      timeEl.textContent = formatTime(ws.getCurrentTime());
+    });
+
+    ws.on('finish', () => {
+      playIcon.style.display = '';
+      pauseIcon.style.display = 'none';
+    });
+
+    btn.addEventListener('click', () => {
+      if (activePlayer && activePlayer !== ws && activePlayer.isPlaying()) {
+        activePlayer.pause();
+        // Reset icons on previous player
+        const prevContainer = (activePlayer as any).getWrapper()?.closest('.inline-audio-player');
+        if (prevContainer) {
+          const pi = prevContainer.querySelector('.iap-play') as HTMLElement;
+          const pa = prevContainer.querySelector('.iap-pause') as HTMLElement;
+          if (pi) pi.style.display = '';
+          if (pa) pa.style.display = 'none';
+        }
+      }
+
+      ws.playPause();
+      const isPlaying = ws.isPlaying();
+      playIcon.style.display = isPlaying ? 'none' : '';
+      pauseIcon.style.display = isPlaying ? '' : 'none';
+      if (isPlaying) activePlayer = ws;
+    });
+  });
+}
+
+// Also init any explicit [data-waveplayer] components
+function initExplicitPlayers() {
+  document.querySelectorAll<HTMLElement>('[data-waveplayer]').forEach((el) => {
+    const src = el.dataset.src;
+    if (!src) return;
+
+    const waveEl = el.querySelector<HTMLElement>('[data-waveform]')!;
+    const btn = el.querySelector<HTMLButtonElement>('[data-play-btn]')!;
+    const playIcon = el.querySelector<HTMLElement>('.play-icon')!;
+    const pauseIcon = el.querySelector<HTMLElement>('.pause-icon')!;
+    const timeEl = el.querySelector<HTMLElement>('[data-time]')!;
+
+    const ws = WaveSurfer.create({
+      container: waveEl,
+      url: src,
+      height: 28,
+      barWidth: 2,
+      barGap: 1,
+      barRadius: 0,
+      waveColor: 'rgba(255, 255, 255, 0.25)',
+      progressColor: '#0d59f2',
+      cursorColor: '#0d59f2',
+      cursorWidth: 1,
+      normalize: true,
+      interact: true,
+    });
+
+    ws.on('ready', () => {
+      timeEl.textContent = formatTime(ws.getDuration());
+    });
+
+    ws.on('audioprocess', () => {
+      timeEl.textContent = formatTime(ws.getCurrentTime());
+    });
+
+    ws.on('finish', () => {
+      playIcon.classList.remove('hidden');
+      pauseIcon.classList.add('hidden');
+    });
+
+    btn.addEventListener('click', () => {
+      if (activePlayer && activePlayer !== ws && activePlayer.isPlaying()) {
+        activePlayer.pause();
+      }
+      ws.playPause();
+      const isPlaying = ws.isPlaying();
+      playIcon.classList.toggle('hidden', isPlaying);
+      pauseIcon.classList.toggle('hidden', !isPlaying);
+      if (isPlaying) activePlayer = ws;
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  enhanceMp3Links();
+  initExplicitPlayers();
+});
+</script>
+
+<style is:global>
+  .inline-audio-player {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .iap-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.2s;
+  }
+
+  .iap-inner:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .iap-btn {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .iap-btn:hover {
+    background: #0d59f2;
+    border-color: #0d59f2;
+  }
+
+  .iap-btn .material-symbols-outlined {
+    font-size: 16px;
+  }
+
+  .iap-meta {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .iap-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .iap-wave {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .iap-time {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-family: ui-monospace, monospace;
+    color: rgba(255, 255, 255, 0.4);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

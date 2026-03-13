@@ -1,37 +1,18 @@
 ---
-interface Props { src: string; title: string; artist?: string; }
-const { src, title, artist } = Astro.props;
+interface Props { src: string; title: string; }
+const { src, title } = Astro.props;
+const id = `player-${Math.random().toString(36).slice(2, 9)}`;
 ---
-<div class="bg-neutral-100 rounded-xl p-4 flex items-center gap-4" data-audio-player>
-  <button class="w-12 h-12 flex items-center justify-center bg-neutral-900 text-white rounded-full hover:bg-neutral-800" data-play-btn aria-label="Play">
-    <svg class="w-5 h-5 play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-    <svg class="w-5 h-5 pause-icon hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-  </button>
-  <div class="flex-1">
-    <div class="font-medium text-neutral-900">{title}</div>
-    {artist && <div class="text-sm text-neutral-500">{artist}</div>}
-    <div class="mt-2 h-1 bg-neutral-300 rounded-full"><div class="h-1 bg-neutral-900 rounded-full w-0" data-progress></div></div>
+<div class="my-4 border border-white/10 bg-white/[0.02]" data-waveplayer data-src={src} id={id}>
+  <div class="flex items-center gap-4 px-4 py-3">
+    <button class="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-white/20 text-white hover:bg-primary hover:border-primary transition-all" data-play-btn aria-label="Play">
+      <span class="material-symbols-outlined text-[18px] play-icon">play_arrow</span>
+      <span class="material-symbols-outlined text-[18px] pause-icon hidden">pause</span>
+    </button>
+    <div class="flex-1 min-w-0">
+      <div class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 truncate">{title}</div>
+      <div data-waveform class="w-full"></div>
+    </div>
+    <span class="text-xs text-slate-500 font-mono tabular-nums flex-shrink-0" data-time>0:00</span>
   </div>
-  <span class="text-sm text-neutral-500" data-time>0:00</span>
-  <audio src={src} preload="metadata" data-audio></audio>
 </div>
-<script>
-document.querySelectorAll('[data-audio-player]').forEach((player) => {
-  const audio = player.querySelector('[data-audio]');
-  const playBtn = player.querySelector('[data-play-btn]');
-  const progress = player.querySelector('[data-progress]');
-  const timeDisplay = player.querySelector('[data-time]');
-  const playIcon = player.querySelector('.play-icon');
-  const pauseIcon = player.querySelector('.pause-icon');
-  playBtn?.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); playIcon?.classList.add('hidden'); pauseIcon?.classList.remove('hidden'); }
-    else { audio.pause(); playIcon?.classList.remove('hidden'); pauseIcon?.classList.add('hidden'); }
-  });
-  audio.addEventListener('timeupdate', () => {
-    progress.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
-    const mins = Math.floor(audio.currentTime / 60);
-    const secs = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
-    timeDisplay.textContent = `${mins}:${secs}`;
-  });
-});
-</script>
