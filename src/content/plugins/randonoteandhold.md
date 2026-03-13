@@ -5,6 +5,7 @@ description: "Generate MIDI notes by sampling noise at rhythmic intervals. Choos
 platforms: ["VST3", "AU"]
 published: true
 order: 9
+image: "/assets/img/plugin-randonoteandhold.jpg"
 features:
   - title: "11 noise algorithms"
     description: "White, Pink, Fibonacci, Turing machine, Logistic chaos, Glitch Walk, WoggleBuggy S&H, Ramp+Noise, Sine+Noise, Perlin, and Euclidean — each with unique melodic character."

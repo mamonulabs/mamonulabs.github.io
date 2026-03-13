@@ -5,6 +5,7 @@ description: "Create smooth transitions between patches and generate creative va
 platforms: ["VST3", "AU", "CLAP"]
 published: true
 order: 8
+image: "/assets/img/plugin-ostirustools.jpg"
 features:
   - title: "Patch Morpher with 8 interpolation algorithms"
     description: "Create smooth transitions between two OsTirus patches using linear, cubic, exponential, and five other interpolation methods."
