@@ -11,21 +11,28 @@ const sortedPlugins = plugins.sort((a, b) => a.data.order - b.data.order);
 ---
 <BaseLayout title="Audio Plugins for Creative Music Production">
   <Header />
-  <main class="pt-20">
+  <main class="flex-grow">
     <Hero
-      title="Audio plugins that inspire creativity"
+      title="plugins <br/> that inspire <br/> creativity"
       subtitle="Probability-based effects and unique sound design tools for adventurous music producers."
       primaryCta={{ label: "Explore Plugins", href: "/plugins" }}
       secondaryCta={{ label: "Learn More", href: "/about" }}
     />
-    <section class="py-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="font-display text-4xl font-bold text-forest-400 glow-forest text-center mb-12">Our Plugins</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedPlugins.map((plugin) => (
-            <PluginCard name={plugin.data.name} tagline={plugin.data.tagline} slug={plugin.slug} image={plugin.data.image} />
-          ))}
+
+    <section class="grid-border-b">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div class="p-6 md:p-12 grid-border-r grid-border-b lg:grid-border-b-0 flex flex-col justify-between min-h-[300px]">
+          <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary">01 / Featured</span>
+          <h2 class="text-3xl font-bold uppercase mt-8">Selected works for the modern studio.</h2>
         </div>
+        {sortedPlugins.map((plugin) => (
+          <PluginCard
+            name={plugin.data.name}
+            tagline={plugin.data.tagline}
+            slug={plugin.slug}
+            image={plugin.data.image}
+          />
+        ))}
       </div>
     </section>
   </main>

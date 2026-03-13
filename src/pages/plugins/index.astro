@@ -10,16 +10,21 @@ const sorted = plugins.sort((a, b) => a.data.order - b.data.order);
 ---
 <BaseLayout title="Plugins">
   <Header />
-  <main class="pt-32 pb-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-cyan glow-cyan text-center mb-4">Plugins</h1>
-      <p class="text-xl text-dark-100 text-center mb-16">Audio effects for creative music production</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <main class="flex-grow">
+    <section class="px-6 md:px-12 py-20 md:py-32 grid-border-b">
+      <div class="max-w-[1400px] mx-auto">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-8 block">Catalog</span>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-4">Plugins</h1>
+        <p class="text-xl text-slate-400 font-light max-w-xl">Audio effects for creative music production</p>
+      </div>
+    </section>
+    <section class="grid-border-b">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3">
         {sorted.map((plugin) => (
           <PluginCard name={plugin.data.name} tagline={plugin.data.tagline} slug={plugin.slug} image={plugin.data.image} />
         ))}
       </div>
-    </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

@@ -7,14 +7,14 @@ interface Props {
 }
 const { name, tagline, slug, image } = Astro.props;
 ---
-<a href={`/plugins/${slug}`} class="group block glass rounded-2xl overflow-hidden hover:glass-strong hover:box-glow-cyan transition-all duration-300">
+<a href={`/plugins/${slug}`} class="group cursor-pointer relative overflow-hidden grid-border">
   {image && (
-    <div class="aspect-video bg-dark-800/50 overflow-hidden">
-      <img src={image} alt={name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+    <div class="aspect-square w-full grayscale group-hover:grayscale-0 transition-all duration-700 overflow-hidden">
+      <img src={image} alt={name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
     </div>
   )}
-  <div class="p-6">
-    <h3 class="font-display text-2xl font-bold text-synth-cyan group-hover:glow-cyan transition-all duration-300">{name}</h3>
-    <p class="mt-2 text-dark-100">{tagline}</p>
+  <div class="p-6 md:p-8 bg-background-dark border-t border-white/10">
+    <h3 class="text-xl font-bold uppercase mb-2">{name}</h3>
+    <p class="text-sm text-slate-400 uppercase tracking-wider">{tagline}</p>
   </div>
 </a>

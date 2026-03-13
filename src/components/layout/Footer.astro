@@ -16,26 +16,32 @@ const footerSections = [
   ]},
 ];
 ---
-<footer class="glass-strong border-t border-synth-purple/30 py-16 mt-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-      <div class="col-span-2 md:col-span-1">
-        <span class="font-display text-2xl font-bold text-synth-cyan glow-cyan">mamonulabs</span>
-        <p class="mt-4 text-sm text-dark-200">Audio plugins for creative music production.</p>
+<footer class="bg-background-dark px-6 md:px-12 py-16">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div class="flex flex-col gap-6">
+        <span class="text-2xl font-bold tracking-tighter lowercase">mamonulabs</span>
+        <p class="text-slate-500 text-sm max-w-xs leading-relaxed">
+          Crafting advanced audio tools for those who explore the boundaries of sound design and music theory.
+        </p>
       </div>
       {footerSections.map((section) => (
-        <div>
-          <h3 class="font-semibold text-forest-400 mb-4">{section.title}</h3>
-          <ul class="space-y-2">
+        <div class="flex flex-col gap-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-primary">{section.title}</span>
+          <nav class="flex flex-col gap-3">
             {section.links.map((link) => (
-              <li><a href={link.href} class="text-sm text-dark-100 hover:text-synth-pink transition-colors">{link.label}</a></li>
+              <a href={link.href} class="text-sm uppercase tracking-wider hover:text-primary transition-colors">{link.label}</a>
             ))}
-          </ul>
+          </nav>
         </div>
       ))}
     </div>
-    <div class="border-t border-dark-500 pt-8 text-sm text-dark-300">
-      <p>&copy; {currentYear} mamonulabs. All rights reserved.</p>
+    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-[10px] text-slate-600 uppercase tracking-[0.2em]">&copy; {currentYear} mamonulabs. All rights reserved.</p>
+      <div class="flex gap-8">
+        <a href="/faq" class="text-[10px] text-slate-600 uppercase tracking-[0.2em] hover:text-white transition-colors">FAQ</a>
+        <a href="/support" class="text-[10px] text-slate-600 uppercase tracking-[0.2em] hover:text-white transition-colors">Support</a>
+      </div>
     </div>
   </div>
 </footer>

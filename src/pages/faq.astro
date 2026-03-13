@@ -20,18 +20,24 @@ const faqs = [
 ---
 <BaseLayout title="FAQ" description="Frequently asked questions about mamonulabs plugins">
   <Header />
-  <main class="pt-32 pb-20">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-synth-cyan glow-cyan mb-8 text-center">Frequently Asked Questions</h1>
-      <div class="space-y-8">
-        {faqs.map((faq) => (
-          <div class="glass-strong rounded-2xl p-8 hover:box-glow-cyan transition-all duration-300">
-            <h2 class="font-display text-2xl font-bold text-synth-pink mb-4">{faq.question}</h2>
-            <p class="text-dark-100">{faq.answer}</p>
+  <main class="flex-grow">
+    <section class="px-6 md:px-12 py-20 md:py-32 grid-border-b">
+      <div class="max-w-[1400px] mx-auto">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-8 block">FAQ</span>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter uppercase">Frequently Asked Questions</h1>
+      </div>
+    </section>
+    <section class="grid-border-b">
+      <div class="max-w-[1400px] mx-auto">
+        {faqs.map((faq, i) => (
+          <div class={`px-6 md:px-12 py-10 ${i < faqs.length - 1 ? 'grid-border-b' : ''}`}>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">{String(i + 1).padStart(2, '0')}</span>
+            <h2 class="text-2xl font-bold uppercase mb-4">{faq.question}</h2>
+            <p class="text-slate-400 leading-relaxed max-w-2xl">{faq.answer}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

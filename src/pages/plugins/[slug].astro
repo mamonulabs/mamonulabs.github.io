@@ -18,51 +18,52 @@ const hasVisualizer = slug === 'ostirustools';
 ---
 <BaseLayout title={plugin.data.name} description={plugin.data.description}>
   <Header />
-  <main class="pt-32 pb-20">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h1 class="font-display text-6xl md:text-8xl font-bold text-synth-pink glow-pink">{plugin.data.name}</h1>
-      <p class="mt-4 text-2xl text-dark-100">{plugin.data.tagline}</p>
-    </div>
+  <main class="flex-grow">
+    <section class="px-6 md:px-12 py-20 md:py-32 grid-border-b">
+      <div class="max-w-[1400px] mx-auto">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-8 block">Plugin</span>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter uppercase">{plugin.data.name}</h1>
+        <p class="mt-4 text-2xl text-slate-400 font-light">{plugin.data.tagline}</p>
+      </div>
+    </section>
 
     {plugin.data.features && plugin.data.features.length > 0 && (
-      <section class="py-20">
-        <div class="max-w-4xl mx-auto px-6">
-          <h2 class="font-display text-4xl font-bold text-forest-400 glow-forest mb-12">Features</h2>
-          <ol class="space-y-6">
+      <section class="px-6 md:px-12 py-20 grid-border-b">
+        <div class="max-w-[1400px] mx-auto">
+          <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-8 block">Features</span>
+          <div class="grid md:grid-cols-2 gap-px bg-white/10">
             {plugin.data.features.map((feature, i) => (
-              <li class="flex gap-6 glass p-6 rounded-xl hover:glass-strong transition-all duration-300">
-                <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-synth-cyan/20 border border-synth-cyan/40 rounded-full font-bold text-synth-cyan">{i + 1}</span>
-                <div>
-                  <h3 class="font-semibold text-lg text-synth-cyan">{feature.title}</h3>
-                  <p class="mt-1 text-dark-100">{feature.description}</p>
-                </div>
-              </li>
+              <div class="p-8 bg-background-dark">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">{String(i + 1).padStart(2, '0')}</span>
+                <h3 class="text-xl font-bold uppercase mb-2">{feature.title}</h3>
+                <p class="text-slate-400 leading-relaxed">{feature.description}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
     )}
 
-    <section class="py-16">
-      <div class="max-w-4xl mx-auto px-6 glass-strong p-8 rounded-2xl prose prose-invert prose-lg max-w-none prose-headings:text-synth-cyan prose-a:text-synth-pink prose-strong:text-forest-400">
+    <section class="px-6 md:px-12 py-16 grid-border-b">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-dark max-w-none prose-headings:font-bold">
         <Content />
       </div>
     </section>
 
     {hasVisualizer && (
-      <section class="py-16">
-        <div class="max-w-6xl mx-auto px-6">
+      <section class="px-6 md:px-12 py-16 grid-border-b">
+        <div class="max-w-[1400px] mx-auto">
           <InterpolationVisualizer />
         </div>
       </section>
     )}
 
-    <section class="py-16 text-center">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="font-display text-2xl font-bold text-forest-400 glow-forest mb-6">Available for</h2>
-        <div class="flex flex-wrap gap-3 justify-center">
+    <section class="px-6 md:px-12 py-16">
+      <div class="max-w-[1400px] mx-auto">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Available for</span>
+        <div class="flex flex-wrap gap-3">
           {plugin.data.platforms.map((p) => (
-            <span class="px-4 py-2 glass border border-synth-purple/40 text-synth-cyan text-sm font-medium rounded-full hover:box-glow-cyan transition-all duration-300">{p}</span>
+            <span class="px-6 py-3 border border-white/10 text-sm font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all">{p}</span>
           ))}
         </div>
       </div>
