@@ -10,6 +10,7 @@ const pluginsCollection = defineCollection({
     features: z.array(z.object({ title: z.string(), description: z.string() })).optional(),
     image: z.string().optional(),
     order: z.number().default(0),
+    published: z.boolean().default(true),
   }),
 });
 

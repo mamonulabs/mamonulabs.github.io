@@ -3,6 +3,7 @@ name: "ProbPitchMidi"
 tagline: "Probabilistic pitch shifting for MIDI"
 description: "Applies probabilistic pitch shifting to incoming MIDI notes."
 platforms: ["VST3", "AU", "CLAP"]
+published: false
 order: 4
 features:
   - title: "Adjustable pitch shift range"

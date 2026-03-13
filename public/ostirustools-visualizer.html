@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OsTirus Interpolation Algorithms Visualizer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: 
+                url('https://i.postimg.cc/TwzBkbcR/FPsbkgimg.png') no-repeat center center fixed,
+                radial-gradient(circle at 20% 30%, rgba(100, 255, 200, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(150, 100, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(50, 150, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(10, 20, 38, 0.6) 0%, rgba(26, 13, 51, 0.6) 30%, rgba(13, 40, 71, 0.6) 70%, rgba(5, 26, 46, 0.6) 100%);
+            background-size: cover, auto, auto, auto, cover;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 15, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(100, 255, 200, 0.15);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 300;
+            text-shadow: 0 0 20px rgba(100, 255, 200, 0.6), 
+                         0 0 40px rgba(150, 100, 255, 0.4),
+                         2px 2px 8px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(45deg, #64ffc8, #9b59b6, #3498db, #64ffc8);
+            background-size: 300% 300%;
+            animation: gradientShift 6s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        select, input, button {
+            padding: 10px 15px;
+            border: 1px solid rgba(100, 255, 200, 0.3);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: rgba(0, 20, 40, 0.8);
+            color: #fff;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #64ffc8;
+            box-shadow: 0 0 0 3px rgba(100, 255, 200, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #64ffc8, #9b59b6);
+            color: #0a0a0a;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(100, 255, 200, 0.3);
+        }
+        
+        .canvas-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        canvas {
+            border: 1px solid rgba(100, 255, 200, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 10, 20, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0, 20, 40, 0.6);
+            border: 1px solid rgba(100, 255, 200, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .legend-item:hover {
+            border-color: rgba(100, 255, 200, 0.4);
+            box-shadow: 0 5px 15px rgba(100, 255, 200, 0.1);
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .algorithm-info {
+            background: rgba(0, 20, 40, 0.6);
+            border: 1px solid rgba(100, 255, 200, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .algorithm-info h3 {
+            color: #64ffc8;
+            margin-top: 0;
+        }
+        
+        .formula {
+            background: rgba(0, 30, 50, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 4px solid #64ffc8;
+            color: #64ffc8;
+        }
+        
+        .chaos-controls {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chaos-controls.show {
+            display: flex;
+        }
+        
+        #chaosRate {
+            width: 200px;
+        }
+        
+        .step-visualization {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 20, 40, 0.6);
+            border: 1px solid rgba(100, 255, 200, 0.2);
+            border-radius: 8px;
+        }
+        
+        .step-dots {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 100px;
+            padding: 10px;
+            background: rgba(0, 10, 20, 0.8);
+            border: 1px solid rgba(100, 255, 200, 0.3);
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .step-dot {
+            width: 12px;
+            height: 12px;
+            background: #64ffc8;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(100, 255, 200, 0.5);
+        }
+        
+        .step-dot:hover {
+            transform: scale(1.5);
+        }
+        
+        .step-value {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 OsTirusTools Interpolation Visualiser</h1>
+        <p class="subtitle">Interactive visualization of patch morphing algorithms</p>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="algorithmSelect"><strong>Algorithm:</strong></label>
+                <select id="algorithmSelect">
+                    <option value="linear">Linear</option>
+                    <option value="easeIn">Ease In</option>
+                    <option value="easeOut">Ease Out</option>
+                    <option value="easeInOut">Ease In-Out</option>
+                    <option value="sine">Sine Wave</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="exponential">Exponential</option>
+                    <option value="chaotic">Chaotic</option>
+                </select>
+            </div>
+            
+            <div class="control-group chaos-controls" id="chaosControls">
+                <label for="chaosRate"><strong>Chaos Rate (r):</strong></label>
+                <input type="range" id="chaosRate" min="3.57" max="4.0" step="0.01" value="3.8">
+                <span id="chaosRateValue">3.8</span>
+            </div>
+            
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="interpolationCanvas" width="900" height="500"></canvas>
+        </div>
+        
+        <div class="legend" id="legend"></div>
+        
+        <div class="algorithm-info" id="algorithmInfo">
+            <h3>Algorithm Information</h3>
+            <p>Select an algorithm to view detailed mathematical information and characteristics.</p>
+        </div>
+        
+        <div class="step-visualization">
+            <h4>8-Step Morph Visualization</h4>
+            <p>This shows the actual values used for the 8 morph steps (t = 1/9, 2/9, ..., 8/9):</p>
+            <div class="step-dots" id="stepDots"></div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('interpolationCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Algorithm information
+        const algorithmInfo = {
+            linear: {
+                name: "Linear Interpolation",
+                formula: "f(t) = t",
+                description: "Constant rate of change. Creates even spacing between morph steps with no acceleration or deceleration.",
+                color: "#e74c3c"
+            },
+            easeIn: {
+                name: "Ease In (Cubic)",
+                formula: "f(t) = t³",
+                description: "Slow start with accelerating finish. 70% of change occurs in the last 30% of time.",
+                color: "#3498db"
+            },
+            easeOut: {
+                name: "Ease Out (Inverse Cubic)",
+                formula: "f(t) = 1 - (1-t)³",
+                description: "Fast start with decelerating finish. 70% of change occurs in the first 30% of time.",
+                color: "#2ecc71"
+            },
+            easeInOut: {
+                name: "Ease In-Out (S-Curve)",
+                formula: "f(t) = 4t³ (t < 0.5) | 1 - (-2t+2)³/2 (t ≥ 0.5)",
+                description: "Slow start and end, faster in middle. Creates natural, organic-feeling transitions.",
+                color: "#f39c12"
+            },
+            sine: {
+                name: "Sine Wave",
+                formula: "f(t) = (sin((t-0.5)π) + 1) / 2",
+                description: "Smooth sinusoidal curve with gentle acceleration to midpoint, then gentle deceleration.",
+                color: "#9b59b6"
+            },
+            bounce: {
+                name: "Bounce (Elastic)",
+                formula: "Piecewise quadratic function",
+                description: "Simulates elastic collision physics with overshoot and oscillation effects.",
+                color: "#e67e22"
+            },
+            exponential: {
+                name: "Exponential Growth",
+                formula: "f(t) = 2^(10(t-1))",
+                description: "Very slow start with explosive finish. 90% of change occurs in final 10% of time.",
+                color: "#34495e"
+            },
+            chaotic: {
+                name: "Chaotic (Logistic Map)",
+                formula: "x_{n+1} = r × x_n × (1-x_n)",
+                description: "Based on chaos theory. Creates unpredictable, organic parameter evolution with sensitive dependence on initial conditions.",
+                color: "#8e44ad"
+            }
+        };
+        
+        // Interpolation functions
+        const interpolationFunctions = {
+            linear: (t) => t,
+            
+            easeIn: (t) => t * t * t,
+            
+            easeOut: (t) => 1 - Math.pow(1 - t, 3),
+            
+            easeInOut: (t) => {
+                return t < 0.5 
+                    ? 4 * t * t * t 
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            },
+            
+            sine: (t) => (Math.sin((t - 0.5) * Math.PI) + 1) / 2,
+            
+            bounce: (t) => {
+                const n1 = 7.5625;
+                const d1 = 2.75;
+                
+                if (t < 1 / d1) {
+                    return n1 * t * t;
+                } else if (t < 2 / d1) {
+                    return n1 * (t -= 1.5 / d1) * t + 0.75;
+                } else if (t < 2.5 / d1) {
+                    return n1 * (t -= 2.25 / d1) * t + 0.9375;
+                } else {
+                    return n1 * (t -= 2.625 / d1) * t + 0.984375;
+                }
+            },
+            
+            exponential: (t) => t === 0 ? 0 : Math.pow(2, 10 * (t - 1)),
+            
+            chaotic: (t) => {
+                const r = parseFloat(document.getElementById('chaosRate').value);
+                let x = 0.1 + (t * 0.8);
+                
+                // Run logistic map iterations
+                const iterations = 50;
+                for (let i = 0; i < iterations; i++) {
+                    x = r * x * (1 - x);
+                }
+                
+                const stepIterations = Math.floor(t * 20) + 1;
+                for (let i = 0; i < stepIterations; i++) {
+                    x = r * x * (1 - x);
+                }
+                
+                return x;
+            }
+        };
+        
+        function drawGrid() {
+            ctx.strokeStyle = 'rgba(100, 255, 200, 0.1)';
+            ctx.lineWidth = 1;
+            
+            // Vertical grid lines
+            for (let i = 0; i <= 10; i++) {
+                const x = 100 + i * 70;
+                ctx.beginPath();
+                ctx.moveTo(x, 50);
+                ctx.lineTo(x, 400);
+                ctx.stroke();
+            }
+            
+            // Horizontal grid lines
+            for (let i = 0; i <= 10; i++) {
+                const y = 50 + i * 35;
+                ctx.beginPath();
+                ctx.moveTo(100, y);
+                ctx.lineTo(800, y);
+                ctx.stroke();
+            }
+            
+            // Axes
+            ctx.strokeStyle = 'rgba(100, 255, 200, 0.6)';
+            ctx.lineWidth = 2;
+            
+            // X-axis
+            ctx.beginPath();
+            ctx.moveTo(100, 400);
+            ctx.lineTo(800, 400);
+            ctx.stroke();
+            
+            // Y-axis
+            ctx.beginPath();
+            ctx.moveTo(100, 50);
+            ctx.lineTo(100, 400);
+            ctx.stroke();
+            
+            // Labels
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            
+            // X-axis labels
+            for (let i = 0; i <= 10; i++) {
+                const x = 100 + i * 70;
+                const value = (i / 10).toFixed(1);
+                ctx.fillText(value, x, 420);
+            }
+            
+            // Y-axis labels
+            ctx.textAlign = 'right';
+            for (let i = 0; i <= 10; i++) {
+                const y = 400 - i * 35;
+                const value = (i / 10).toFixed(1);
+                ctx.fillText(value, 90, y + 5);
+            }
+            
+            // Axis titles
+            ctx.textAlign = 'center';
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#64ffc8';
+            ctx.fillText('Input (t)', 450, 450);
+            
+            ctx.save();
+            ctx.translate(30, 225);
+            ctx.rotate(-Math.PI/2);
+            ctx.fillText('Output f(t)', 0, 0);
+            ctx.restore();
+        }
+        
+        function drawCurve(func, color, name, lineWidth = 2) {
+            ctx.strokeStyle = color;
+            ctx.lineWidth = lineWidth;
+            ctx.beginPath();
+            
+            let isFirstPoint = true;
+            for (let i = 0; i <= 700; i++) {
+                const t = i / 700;
+                const value = func(t);
+                const x = 100 + t * 700;
+                const y = 400 - value * 350;
+                
+                if (isFirstPoint) {
+                    ctx.moveTo(x, y);
+                    isFirstPoint = false;
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            
+            ctx.stroke();
+            
+            // Draw 8-step points
+            ctx.fillStyle = color;
+            for (let i = 1; i <= 8; i++) {
+                const t = i / 9;
+                const value = func(t);
+                const x = 100 + t * 700;
+                const y = 400 - value * 350;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+        
+        function updateLegend(selectedAlgorithm) {
+            const legend = document.getElementById('legend');
+            legend.innerHTML = '';
+            
+            const info = algorithmInfo[selectedAlgorithm];
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+            legendItem.innerHTML = `
+                <div class="legend-color" style="background-color: ${info.color}"></div>
+                <strong>${info.name}</strong>
+            `;
+            legend.appendChild(legendItem);
+        }
+        
+        function showAlgorithmInfo(algorithm) {
+            const info = algorithmInfo[algorithm];
+            const infoDiv = document.getElementById('algorithmInfo');
+            
+            infoDiv.innerHTML = `
+                <h3 style="color: ${info.color}">${info.name}</h3>
+                <div class="formula">${info.formula}</div>
+                <p><strong>Description:</strong> ${info.description}</p>
+            `;
+            
+            updateStepVisualization(algorithm);
+        }
+        
+        function updateStepVisualization(algorithm) {
+            const stepDots = document.getElementById('stepDots');
+            stepDots.innerHTML = '';
+            
+            const func = interpolationFunctions[algorithm];
+            const color = algorithmInfo[algorithm].color;
+            
+            for (let i = 1; i <= 8; i++) {
+                const t = i / 9;
+                const value = func(t);
+                const dot = document.createElement('div');
+                dot.className = 'step-dot';
+                dot.style.backgroundColor = color;
+                dot.style.bottom = `${value * 80}px`;
+                
+                const valueSpan = document.createElement('span');
+                valueSpan.className = 'step-value';
+                valueSpan.textContent = `t=${t.toFixed(2)}\nf(t)=${value.toFixed(3)}`;
+                dot.appendChild(valueSpan);
+                
+                stepDots.appendChild(dot);
+            }
+        }
+        
+        function drawVisualization() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid();
+            
+            const selectedAlgorithm = document.getElementById('algorithmSelect').value;
+            
+            // Draw single algorithm
+            const func = interpolationFunctions[selectedAlgorithm];
+            const info = algorithmInfo[selectedAlgorithm];
+            drawCurve(func, info.color, selectedAlgorithm, 3);
+            showAlgorithmInfo(selectedAlgorithm);
+            
+            updateLegend(selectedAlgorithm);
+        }
+        
+        
+        // Event listeners
+        document.getElementById('algorithmSelect').addEventListener('change', function() {
+            const chaosControls = document.getElementById('chaosControls');
+            if (this.value === 'chaotic') {
+                chaosControls.classList.add('show');
+            } else {
+                chaosControls.classList.remove('show');
+            }
+            drawVisualization();
+        });
+        
+        document.getElementById('chaosRate').addEventListener('input', function() {
+            document.getElementById('chaosRateValue').textContent = this.value;
+            if (document.getElementById('algorithmSelect').value === 'chaotic') {
+                drawVisualization();
+            }
+        });
+        
+        // Initial draw
+        drawVisualization();
+    </script>
+</body>
+</html>

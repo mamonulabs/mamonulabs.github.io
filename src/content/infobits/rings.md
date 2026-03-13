@@ -3,7 +3,7 @@ title: "Mutable Instruments Rings"
 description: "A resonator module implementing modal synthesis and Karplus-Strong algorithms"
 ---
 
-<img src="/assets/img/rings.jpg" alt="Rings" style="max-width: 60%;" />
+<img src="/assets/img/rings.jpg" alt="Rings" style="height: 500px; width: auto;" />
 
 ---
 

@@ -3,6 +3,7 @@ name: "SyncRoboVerb"
 tagline: "Synchronized robotic reverb with tempo-locked reflections"
 description: "A synchronized robotic reverb with tempo-locked reflections."
 platforms: ["VST3", "AU", "CLAP"]
+published: false
 order: 7
 features:
   - title: "Tempo-synced reverb tails"
