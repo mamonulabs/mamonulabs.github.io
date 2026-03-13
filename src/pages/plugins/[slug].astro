@@ -19,24 +19,24 @@ const hasVisualizer = slug === 'ostirustools';
 <BaseLayout title={plugin.data.name} description={plugin.data.description}>
   <Header />
   <main class="flex-grow">
-    <section class="px-6 md:px-12 py-20 md:py-32 grid-border-b">
-      <div class="max-w-[1400px] mx-auto">
+    <section class="py-24 px-8 md:px-24 grid-border-b">
+      <div class="max-w-4xl mx-auto">
         <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-8 block">Plugin</span>
         <h1 class="text-6xl md:text-8xl font-bold tracking-tighter uppercase">{plugin.data.name}</h1>
-        <p class="mt-4 text-2xl text-slate-400 font-light">{plugin.data.tagline}</p>
+        <p class="mt-4 text-xl md:text-2xl text-slate-400 font-light">{plugin.data.tagline}</p>
       </div>
     </section>
 
     {plugin.data.features && plugin.data.features.length > 0 && (
-      <section class="px-6 md:px-12 py-20 grid-border-b">
-        <div class="max-w-[1400px] mx-auto">
-          <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-8 block">Features</span>
-          <div class="grid md:grid-cols-2 gap-px bg-white/10">
+      <section class="py-24 px-8 md:px-24 grid-border-b">
+        <div class="max-w-6xl mx-auto">
+          <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12 block">Features</span>
+          <div class="grid md:grid-cols-2 gap-px" style="background: rgba(13, 89, 242, 0.2);">
             {plugin.data.features.map((feature, i) => (
               <div class="p-8 bg-background-dark">
-                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">{String(i + 1).padStart(2, '0')}</span>
+                <span class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-4 block">{String(i + 1).padStart(2, '0')}</span>
                 <h3 class="text-xl font-bold uppercase mb-2">{feature.title}</h3>
-                <p class="text-slate-400 leading-relaxed">{feature.description}</p>
+                <p class="text-slate-400 leading-relaxed text-sm">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -44,26 +44,26 @@ const hasVisualizer = slug === 'ostirustools';
       </section>
     )}
 
-    <section class="px-6 md:px-12 py-16 grid-border-b">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-dark max-w-none prose-headings:font-bold">
+    <section class="py-24 px-8 md:px-24 grid-border-b">
+      <div class="max-w-4xl mx-auto content-body">
         <Content />
       </div>
     </section>
 
     {hasVisualizer && (
-      <section class="px-6 md:px-12 py-16 grid-border-b">
-        <div class="max-w-[1400px] mx-auto">
+      <section class="py-24 px-8 md:px-24 grid-border-b">
+        <div class="max-w-6xl mx-auto">
           <InterpolationVisualizer />
         </div>
       </section>
     )}
 
-    <section class="px-6 md:px-12 py-16">
-      <div class="max-w-[1400px] mx-auto">
+    <section class="py-24 px-8 md:px-24">
+      <div class="max-w-4xl mx-auto">
         <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Available for</span>
         <div class="flex flex-wrap gap-3">
           {plugin.data.platforms.map((p) => (
-            <span class="px-6 py-3 border border-white/10 text-sm font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all">{p}</span>
+            <span class="px-6 py-3 border border-primary/20 text-sm font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all">{p}</span>
           ))}
         </div>
       </div>

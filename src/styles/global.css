@@ -19,32 +19,254 @@
 
 @layer components {
   .grid-border {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(13, 89, 242, 0.2);
   }
-  .grid-border-t { border-top: 1px solid rgba(255, 255, 255, 0.1); }
-  .grid-border-b { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-  .grid-border-l { border-left: 1px solid rgba(255, 255, 255, 0.1); }
-  .grid-border-r { border-right: 1px solid rgba(255, 255, 255, 0.1); }
+  .grid-border-t { border-top: 1px solid rgba(13, 89, 242, 0.2); }
+  .grid-border-b { border-bottom: 1px solid rgba(13, 89, 242, 0.2); }
+  .grid-border-l { border-left: 1px solid rgba(13, 89, 242, 0.2); }
+  .grid-border-r { border-right: 1px solid rgba(13, 89, 242, 0.2); }
 
-  /* Prose overrides for dark content pages */
-  .prose-dark {
-    @apply text-slate-300;
+  /* Grid-line: Stitch blue-tinted border */
+  .grid-line {
+    border-color: rgba(13, 89, 242, 0.2);
   }
-  .prose-dark h1,
-  .prose-dark h2,
-  .prose-dark h3,
-  .prose-dark h4,
-  .prose-dark h5,
-  .prose-dark h6 {
-    @apply text-white uppercase tracking-tight;
+
+  /* ── Content body styling (matches Stitch plugin detail page) ── */
+  .content-body {
+    color: #94a3b8; /* slate-400 */
+    font-size: 1.125rem;
+    line-height: 1.8;
   }
-  .prose-dark a {
-    @apply text-primary hover:text-white transition-colors;
+
+  .content-body > *:first-child {
+    margin-top: 0;
   }
-  .prose-dark strong {
-    @apply text-white;
+
+  /* Section headings — tiny blue uppercase labels */
+  .content-body h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0d59f2;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(13, 89, 242, 0.2);
   }
-  .prose-dark code {
-    @apply text-slate-200 bg-white/5 px-1.5 py-0.5;
+
+  .content-body > h2:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .content-body h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0d59f2;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Paragraphs */
+  .content-body p {
+    color: #cbd5e1; /* slate-300 */
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  /* First paragraph after h2 — larger intro style */
+  .content-body h2 + p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #e2e8f0; /* slate-200 */
+    line-height: 1.7;
+  }
+
+  /* Bold text pops white */
+  .content-body strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  /* Italic */
+  .content-body em {
+    color: #94a3b8;
+    font-style: italic;
+  }
+
+  /* Links — blue with subtle underline */
+  .content-body a {
+    color: #0d59f2;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(13, 89, 242, 0.3);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .content-body a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+  }
+
+  /* Unordered lists — clean spacing, blue markers */
+  .content-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .content-body ul > li {
+    position: relative;
+    padding: 0.875rem 0;
+    padding-left: 1.5rem;
+    border-bottom: 1px solid rgba(13, 89, 242, 0.1);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #94a3b8;
+  }
+
+  .content-body ul > li:last-child {
+    border-bottom: none;
+  }
+
+  .content-body ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.25rem;
+    width: 6px;
+    height: 6px;
+    background: #0d59f2;
+  }
+
+  /* Bold name in list item — primary color, acts as label */
+  .content-body ul > li > strong:first-child {
+    color: #0d59f2;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Ordered lists */
+  .content-body ol {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    counter-reset: list-counter;
+  }
+
+  .content-body ol > li {
+    counter-increment: list-counter;
+    position: relative;
+    padding: 0.875rem 0;
+    padding-left: 2.5rem;
+    border-bottom: 1px solid rgba(13, 89, 242, 0.1);
+    font-size: 0.9375rem;
+    color: #94a3b8;
+  }
+
+  .content-body ol > li::before {
+    content: counter(list-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.875rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: rgba(13, 89, 242, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* Tables — blue grid borders */
+  .content-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.875rem;
+  }
+
+  .content-body thead tr {
+    background: rgba(13, 89, 242, 0.05);
+  }
+
+  .content-body th {
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(13, 89, 242, 0.2);
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #cbd5e1;
+  }
+
+  .content-body td {
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(13, 89, 242, 0.2);
+    color: #94a3b8;
+  }
+
+  .content-body td:first-child {
+    font-weight: 700;
+    color: #0d59f2;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+  }
+
+  /* Blockquotes */
+  .content-body blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: rgba(13, 89, 242, 0.05);
+    border-left: 2px solid #0d59f2;
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: #e2e8f0;
+  }
+
+  .content-body blockquote p {
+    margin-bottom: 0;
+  }
+
+  /* Horizontal rules */
+  .content-body hr {
+    border: none;
+    height: 1px;
+    background: rgba(13, 89, 242, 0.2);
+    margin: 3rem 0;
+  }
+
+  /* Code */
+  .content-body code {
+    font-family: ui-monospace, monospace;
+    font-size: 0.85em;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.15em 0.4em;
+  }
+
+  .content-body pre {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(13, 89, 242, 0.05);
+    border: 1px solid rgba(13, 89, 242, 0.2);
+    overflow-x: auto;
+  }
+
+  .content-body pre code {
+    background: none;
+    padding: 0;
+  }
+
+  /* Images */
+  .content-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2.5rem auto;
+    border: 1px solid rgba(13, 89, 242, 0.2);
   }
 }
