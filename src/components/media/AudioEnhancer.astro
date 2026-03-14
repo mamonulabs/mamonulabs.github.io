@@ -156,6 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
   enhanceMp3Links();
   initExplicitPlayers();
 });
+
+// Fallback if DOMContentLoaded already fired (module scripts)
+if (document.readyState !== 'loading') {
+  enhanceMp3Links();
+  initExplicitPlayers();
+}
 </script>
 
 <style is:global>
