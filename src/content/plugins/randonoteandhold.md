@@ -4,7 +4,7 @@ tagline: "Generative MIDI sequencer — 16 noise algorithms, Euclidean gating, d
 description: "A generative MIDI sequencer that samples from 16 noise and chaos algorithms at configurable clock divisions to produce random melodic patterns synced to your DAW's transport."
 platforms: ["VST3", "AU"]
 published: true
-order: 9
+order: 1
 image: "/assets/img/plugin-randonoteandhold.jpg"
 features:
   - title: "16 noise & chaos algorithms"

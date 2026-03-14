@@ -20,11 +20,11 @@ const sortedPlugins = plugins.sort((a, b) => a.data.order - b.data.order);
     />
 
     <section class="grid-border-b">
+      <div class="p-6 md:p-12 grid-border-b flex flex-col justify-between min-h-[200px]">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary">01 / Featured</span>
+        <h2 class="text-3xl font-bold uppercase mt-8">Selected works for the modern studio.</h2>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        <div class="p-6 md:p-12 grid-border-r grid-border-b lg:grid-border-b-0 flex flex-col justify-between min-h-[300px]">
-          <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary">01 / Featured</span>
-          <h2 class="text-3xl font-bold uppercase mt-8">Selected works for the modern studio.</h2>
-        </div>
         {sortedPlugins.map((plugin) => (
           <PluginCard
             name={plugin.data.name}
