@@ -78,9 +78,9 @@ Chance controls the number of zeros and one extracted from the noise source.
 - At 12 o'clock position, equal numbers of zeros and ones are output and the "Chance indicator" LED flickers.
 
 
-With the "CHANGE" control is set to 100% (all new data), sweeping the "CHANCE" control sounds like [this](/assets/snd/PROB1SWE.mp3) at the **2^n** output
+With the "CHANGE" control is set to 100% (all new data), sweeping the "CHANCE" control sounds like [Chance Sweep — 2^n Output](/assets/snd/PROB1SWE.mp3) at the **2^n** output
 
-With the "CHANGE" control is set to 100% (all new data), sweeping the "CHANCE" control sounds like [this](/assets/snd/PROB1SW2.mp3) at the **n+1** output
+With the "CHANGE" control is set to 100% (all new data), sweeping the "CHANCE" control sounds like [Chance Sweep — n+1 Output](/assets/snd/PROB1SW2.mp3) at the **n+1** output
 
 
 ---
@@ -116,13 +116,13 @@ Change controls the number of new zeros and one which are let into the ring.
 ### Oscillator:
 
 Another oscillator can be used to supply data into the shift register. Connect any waveform into the "CHANCE INPUT" jack.
-In this case we [hear](/assets/snd/CLOCKSW2.mp3) the familiar "phased" sound of a swept shift register
+In this case we [Swept Shift Register — Phased](/assets/snd/CLOCKSW2.mp3) the familiar "phased" sound of a swept shift register
 
-At ultrasonic frequencies the heterodynes [do a good approximation of a shortwave radio](/assets/snd/SHORTWAVE.mp3)
+At ultrasonic frequencies the heterodynes [Ultrasonic Heterodyne — Shortwave](/assets/snd/SHORTWAVE.mp3)
 
 ### Drum Machine:
 
-[Here](/assets/snd/DRUM3.mp3) the drum machine input is processed through the NoiseRing, then has the envelope reapplied to a VCF
+[Drum Machine Through NoiseRing](/assets/snd/DRUM3.mp3) the drum machine input is processed through the NoiseRing, then has the envelope reapplied to a VCF
 
 ---
 
