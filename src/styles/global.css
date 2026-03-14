@@ -34,7 +34,7 @@
   /* ── Content body styling (matches Stitch plugin detail page) ── */
   .content-body {
     color: #94a3b8; /* slate-400 */
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.8;
   }
 
@@ -42,9 +42,9 @@
     margin-top: 0;
   }
 
-  /* Section headings — tiny blue uppercase labels */
+  /* Section headings — blue uppercase labels */
   .content-body h2 {
-    font-size: 0.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #0d59f2;
     text-transform: uppercase;
@@ -62,7 +62,7 @@
   }
 
   .content-body h3 {
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #0d59f2;
     text-transform: uppercase;
@@ -80,7 +80,7 @@
 
   /* First paragraph after h2 — larger intro style */
   .content-body h2 + p {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 300;
     color: #e2e8f0; /* slate-200 */
     line-height: 1.7;
@@ -122,8 +122,8 @@
     padding: 0.875rem 0;
     padding-left: 1.5rem;
     border-bottom: 1px solid rgba(13, 89, 242, 0.1);
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.7;
     color: #94a3b8;
   }
 
@@ -135,7 +135,7 @@
     content: '';
     position: absolute;
     left: 0;
-    top: 1.25rem;
+    top: 1.35rem;
     width: 6px;
     height: 6px;
     background: #0d59f2;
@@ -145,7 +145,7 @@
   .content-body ul > li > strong:first-child {
     color: #0d59f2;
     text-transform: uppercase;
-    font-size: 0.8125rem;
+    font-size: 1rem;
     letter-spacing: 0.05em;
     display: block;
     margin-bottom: 0.25rem;
@@ -165,7 +165,7 @@
     padding: 0.875rem 0;
     padding-left: 2.5rem;
     border-bottom: 1px solid rgba(13, 89, 242, 0.1);
-    font-size: 0.9375rem;
+    font-size: 1.125rem;
     color: #94a3b8;
   }
 
@@ -185,7 +185,7 @@
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
-    font-size: 0.875rem;
+    font-size: 1.0625rem;
   }
 
   .content-body thead tr {
@@ -196,7 +196,7 @@
     padding: 1rem 1.5rem;
     border: 1px solid rgba(13, 89, 242, 0.2);
     text-align: left;
-    font-size: 0.6875rem;
+    font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -207,13 +207,14 @@
     padding: 1rem 1.5rem;
     border: 1px solid rgba(13, 89, 242, 0.2);
     color: #94a3b8;
+    font-size: 1.0625rem;
   }
 
   .content-body td:first-child {
     font-weight: 700;
     color: #0d59f2;
     text-transform: uppercase;
-    font-size: 0.8125rem;
+    font-size: 1rem;
   }
 
   /* Blockquotes */
