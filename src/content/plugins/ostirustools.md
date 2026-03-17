@@ -3,7 +3,7 @@ name: "OsTirusTools"
 tagline: "Patch morphing and mutation tools for OsTirus synthesizer"
 description: "Create smooth transitions between patches and generate creative variations using advanced interpolation algorithms."
 platforms: ["VST3", "AU", "CLAP"]
-published: true
+published: false
 order: 3
 image: "/assets/img/plugin-ostirustools.jpg"
 features:
