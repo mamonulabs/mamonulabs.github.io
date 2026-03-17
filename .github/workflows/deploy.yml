@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.repository == 'mamonulabs/mamonulabs.github.io'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,6 +40,7 @@ jobs:
           path: dist
 
   deploy:
+    if: github.repository == 'mamonulabs/mamonulabs.github.io'
     needs: build
     runs-on: ubuntu-latest
     environment:
