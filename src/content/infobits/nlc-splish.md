@@ -11,7 +11,7 @@ description: "Nonlinearcircuits' 4HP signal combiner that turns 3 inputs into 8 
 
 The Splish is a compact difference rectifier module designed by Andrew Fitch of Nonlinearcircuits. It takes 3 input signals—CV, audio, or any combination—and produces 8 outputs, each carrying a different mathematical combination of those inputs. It's the smaller sibling of the 12HP Let's Splosh, condensed into just 4HP with no controls, no menus, and no digital processing. Plug signals in, get related but distinct signals out.
 
-The core operation is simple: sum some signals, subtract others, then split the result into positive and negative components. But when multiple stages of this process are chained with different input combinations, the outputs become complex, unpredictable, and musically useful in ways that are difficult to achieve with conventional mixers or logic modules.
+The core operation is simple: sum some signals, subtract others, then split the result into positive and negative components. But when multiple stages of this process are chained with different input combinations, the outputs get complex and unpredictable fast.
 
 ---
 

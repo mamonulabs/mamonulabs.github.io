@@ -1,7 +1,7 @@
 ---
 name: "ChaosMouse"
 tagline: "Chaotic oscillator MIDI CC generator — 5 modulation streams from a Sloth circuit"
-description: "A generative MIDI CC plugin that runs a Sloth Torpor chaotic oscillator and outputs 5 continuous control streams (X, Y, W, Splish A, Splish B) for organic, unpredictable modulation synced to your DAW."
+description: "A generative MIDI CC plugin that runs a Sloth Torpor chaotic oscillator and outputs 5 continuous control streams (X, Y, W, Splish A, Splish B) as slow, unpredictable modulation synced to your DAW."
 platforms: ["VST3", "AU"]
 published: true
 order: 8
@@ -22,7 +22,7 @@ Drop it on a MIDI track and let a chaotic oscillator write modulation you'd neve
 
 ChaosMouse runs a [Sloth](/infobits/nlc-sloth) Torpor chaotic oscillator — a 4-variable implicit ODE system that produces slowly evolving, never-repeating trajectories. The oscillator's X, Y, and W coordinates are mapped to MIDI CC values, and two additional streams ([Splish](/infobits/nlc-splish) A and Splish B) are derived through a difference-rectifier algorithm inspired by NonlinearCircuits designs.
 
-All incoming MIDI passes through untouched. ChaosMouse adds its generated CC messages on top, so you can layer organic modulation over any existing MIDI performance.
+All incoming MIDI passes through untouched. ChaosMouse adds its generated CC messages on top, so you can layer chaotic modulation over any existing MIDI performance.
 
 ## The oscillator
 

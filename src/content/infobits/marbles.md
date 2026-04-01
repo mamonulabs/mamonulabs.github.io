@@ -275,7 +275,7 @@ The module runs user-updateable firmware. Updates are installed by playing an au
 
 ---
 
-Marbles consolidates multiple modular functions—random sources, sample-and-holds, quantizers, rhythm generators, probability processors—into a single module with a unified control interface focused on shaping randomness through probability and memory.
+Random sources, sample-and-holds, quantizer, rhythm generator, and probability processor in one module.
 
 ---
 

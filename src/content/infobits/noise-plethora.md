@@ -186,7 +186,7 @@ The front panel uses Befaco's signature red, black, and gray color scheme with c
 
 ---
 
-The module consolidates what would typically require multiple noise sources, filters, and modulation processors into a single, performance-oriented interface focused on noise generation and shaping.
+Three noise channels, multiple algorithm banks, and filtering in one module.
 
 ---
 

@@ -8,12 +8,12 @@ order: 1
 features:
   - title: "Probability-based note triggering"
     description: "Each note has adjustable probability of playing, creating unpredictable patterns."
-  - title: "Adjustable randomness parameters"
-    description: "Fine-tune the level of chaos and unpredictability in your arpeggios."
-  - title: "Creepy, evolving patterns"
-    description: "Generate eerie, constantly-shifting melodic sequences."
+  - title: "Randomness controls"
+    description: "Per-note probability, pitch drift range, and octave jump controls."
+  - title: "Shifting patterns"
+    description: "Arpeggio patterns that mutate over time rather than looping identically."
 ---
 
-A probabilistic arpeggiator that creates creepy, unpredictable melodic patterns perfect for experimental music production.
+A probabilistic arpeggiator that creates creepy, unpredictable melodic patterns.
 
 *Documentation coming soon...*

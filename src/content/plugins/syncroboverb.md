@@ -9,11 +9,11 @@ features:
   - title: "Tempo-synced reverb tails"
     description: "Lock reverb decay to your DAW's tempo for rhythmic space."
   - title: "Robotic/metallic character"
-    description: "Distinctive metallic timbre adds unique character to reverb tails."
+    description: "Metallic, comb-filtered timbre on the reverb tail."
   - title: "Rhythmic reflection patterns"
-    description: "Create pulsing, rhythmic reverb effects synchronized to your music."
+    description: "Reflections that pulse in time with the tempo."
 ---
 
-A synchronized robotic reverb with tempo-locked reflections that creates unique rhythmic spaces.
+Robotic reverb with tempo-locked reflections.
 
 *Documentation coming soon...*
