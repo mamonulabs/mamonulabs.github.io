@@ -20,13 +20,13 @@ Drop it on a MIDI track and let a chaotic oscillator write modulation you'd neve
 
 ## How it works
 
-ChaosMouse runs a Sloth Torpor chaotic oscillator — a 4-variable implicit ODE system that produces slowly evolving, never-repeating trajectories. The oscillator's X, Y, and W coordinates are mapped to MIDI CC values, and two additional streams (Splish A and Splish B) are derived through a difference-rectifier algorithm inspired by NonlinearCircuits designs.
+ChaosMouse runs a [Sloth](/infobits/nlc-sloth) Torpor chaotic oscillator — a 4-variable implicit ODE system that produces slowly evolving, never-repeating trajectories. The oscillator's X, Y, and W coordinates are mapped to MIDI CC values, and two additional streams ([Splish](/infobits/nlc-splish) A and Splish B) are derived through a difference-rectifier algorithm inspired by NonlinearCircuits designs.
 
 All incoming MIDI passes through untouched. ChaosMouse adds its generated CC messages on top, so you can layer organic modulation over any existing MIDI performance.
 
 ## The oscillator
 
-The Sloth circuit has three speed variants that control how fast the trajectory evolves:
+The [Sloth](/infobits/nlc-sloth) circuit has three speed variants that control how fast the trajectory evolves:
 
 - **Torpor** — The slowest. Long, sweeping modulation arcs that unfold over bars.
 - **Apathy** — Medium speed. Good balance between movement and stability.
@@ -39,7 +39,7 @@ The oscillator uses auto-scaling to track the dynamic range of each axis, so out
 Each of the five streams maps to a configurable MIDI CC number (defaults: X=20, Y=21, W=22, A=23, B=24):
 
 - **X, Y, W** — Direct coordinates from the chaotic oscillator. Each moves independently with its own characteristic motion.
-- **Splish A, Splish B** — Derived signals that combine and rectify differences between the raw axes, producing spikier, more rhythmic modulation patterns.
+- **[Splish](/infobits/nlc-splish) A, Splish B** — Derived signals that combine and rectify differences between the raw axes, producing spikier, more rhythmic modulation patterns.
 
 All outputs are mapped to a configurable Lo/Hi range within 0–127.
 

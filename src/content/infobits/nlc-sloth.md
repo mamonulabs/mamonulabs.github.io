@@ -63,16 +63,6 @@ Time scales range from perceptible evolution (15-30 seconds for timbral changes 
 
 ---
 
-## Comparison
-
-| Version | Width | Outputs | Speeds | Controls | Price |
-|---------|-------|---------|--------|----------|-------|
-| 4HP | 4HP | 2 | 15s to 2hr (choose one) | 1 pot | $8-26 |
-| Triple | 8HP | 11 | 15s, 60s, 30min (all three) | 2 pots, 2 CV | $10-230 |
-| 1U | 6HP 1U | 2 | 15s, 1min, or 15min (choose one) | 1 input | $6-12 |
-
----
-
 ## Patching Ideas
 
 Use fast Sloth (Torpor) for timbral evolution—modulate filter cutoff and resonance for continuously morphing tone colors. Medium Sloth (Apathy) works well for spatial changes like panning or reverb size, creating sectional variation. Slow Sloth (Inertia) provides macro-level evolution—overall brightness or texture density that shifts imperceptibly over the piece.
