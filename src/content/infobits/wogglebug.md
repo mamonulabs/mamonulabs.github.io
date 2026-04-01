@@ -73,18 +73,6 @@ The larger format makes the Wogglebug particularly comfortable for live performa
 
 ---
 
-## Comparison
-
-| Version | Format | Width | Voltage | Availability | Character |
-|---------|--------|-------|---------|--------------|-----------|
-| Wiard 300 | 6U | ~6U | 0-10V | Vintage/Rare | Original, comprehensive |
-| Frac #3 | Frac | ~2fu | 0-10V | Extremely Rare | Closest to original |
-| Richter (V1) | Eurorack | 10HP | 0-10V | Discontinued | Maximum chaos |
-| Current | Eurorack | 10HP | 0-10V | In Production | Musical, stable |
-| LWSS 5U | 5U | 5U | 0-10V | In Production | Classic format |
-
----
-
 ## The Woggle Concept
 
 All Wogglebug variants share Grant Richter's fundamental design philosophy: controlled chaos that can be influenced but not tamed, self-sufficiency as a complete random voltage ecosystem, audio integration at both CV and audio rates, and organic evolution where patches develop naturally over time.

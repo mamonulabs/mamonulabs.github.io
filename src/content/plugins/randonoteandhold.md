@@ -39,8 +39,8 @@ Each algorithm has a different character. Some are wild, some are smooth, some e
 - **Ramp+Noise** — Falling sawtooth mixed with white noise, cascading energy. Character controls noise mix.
 - **Sine+Noise** — Sum of 4 sine waves at prime ratios with mutating amplitudes. Character controls mutation rate.
 - **Perlin** — Multi-octave sine summation + noise perturbation, smooth contours. Character controls roughness.
-- **Splish** — Difference rectifier of White + Fibonacci + WoggleBuggy (NonlinearCircuits). Character controls diff gain.
-- **SlothSplish** — Sloth Torpor chaotic oscillator fed into Splish diff rectifier (NonlinearCircuits). Character controls sloth mix.
+- **[Splish](/infobits/nlc-splish)** — Difference rectifier of White + Fibonacci + WoggleBuggy (NonlinearCircuits). Character controls diff gain.
+- **[Sloth](/infobits/nlc-sloth)[Splish](/infobits/nlc-splish)** — Sloth Torpor chaotic oscillator fed into Splish diff rectifier (NonlinearCircuits). Character controls sloth mix.
 - **SquidAxon** — 4-stage shift register with nonlinear diode feedback (NonlinearCircuits). Character controls feedback gain.
 - **Rungler** — 8-bit LFSR with white noise XOR input, Hordijk-inspired digital chaos. Character controls number of feedback taps.
 - **Henon** — 2D quadratic chaotic map, jumpy orbiting patterns. Character controls `a` parameter (1.0–1.4).
