@@ -1,18 +1,18 @@
 ---
 name: "StaticPlethorium"
 tagline: "19 experimental noise algorithms from Befaco Noise Plethora"
-description: "Digital noise synthesis plugin porting algorithms from the Befaco Noise Plethora Eurorack module, featuring FM clusters, ring modulation, and experimental textures with MIDI control."
+description: "Port of the Befaco Noise Plethora's 19 digital noise algorithms with MIDI pitch control."
 platforms: ["VST3", "AU", "CLAP"]
 published: false
 order: 2
 image: "/assets/img/White-noise.jpg"
 features:
   - title: "19 diverse noise generation algorithms"
-    description: "From filtered white noise and detuned oscillator clusters to FM synthesis, ring modulation, and extreme PWM chaos—each algorithm offers unique sonic character."
+    description: "Filtered white noise, detuned oscillator clusters, FM synthesis, ring modulation, extreme PWM chaos, and more."
   - title: "MIDI pitch control with visual feedback"
-    description: "Play notes from C-1 to C7 to control frequency parameters, with LED indicator providing visual feedback for MIDI input."
+    description: "Play notes from C-1 to C7 to control frequency parameters. LED blinks on MIDI input."
   - title: "Dynamic parameter labels per algorithm"
-    description: "Two control knobs automatically update their labels to show algorithm-specific functions (e.g., FM Index, Spread, Pulse Width) for intuitive sound shaping."
+    description: "Two control knobs with labels that update per algorithm (e.g., FM Index, Spread, Pulse Width)."
   - title: "Based on open-source Eurorack algorithms"
-    description: "Port of the Befaco Noise Plethora module's digital noise generators, bringing modular synthesis textures to your DAW. See our Noise Plethora infobit for detailed algorithm descriptions."
+    description: "Port of the Befaco Noise Plethora module's digital noise generators. See our Noise Plethora infobit for detailed algorithm descriptions."
 ---
