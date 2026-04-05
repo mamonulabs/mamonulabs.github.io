@@ -4,7 +4,7 @@ tagline: "Data sonification instrument — turn anything into MIDI sequences"
 description: "A MIDI plugin that converts arbitrary data — numbers, text, CSV files, live weather — into playable note sequences with scale quantization, velocity randomization, and tempo-synced playback."
 platforms: ["VST3", "AU"]
 published: true
-order: 9
+order: 4
 image: "/assets/img/plugin-datahell.svg"
 features:
   - title: "Universal data input"

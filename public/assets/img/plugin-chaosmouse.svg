@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="trail1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00e5c8" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#00e5c8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00e5c8" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="trail2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00e5c8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00e5c8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#00e5c8" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="bloom">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+    </filter>
+    <radialGradient id="core1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#00e5c8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="30%" stop-color="#00e5c8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00e5c8" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#00e5c8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00e5c8" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="#030604"/>
+
+  <!-- Faint matrix rain background -->
+  <g font-family="monospace" font-size="10" fill="url(#rain)" opacity="0.4">
+    <text x="15" y="60">C</text><text x="15" y="120">7</text><text x="15" y="180">♩</text><text x="15" y="240">F</text><text x="15" y="300">2</text><text x="15" y="360">A</text><text x="15" y="420">♪</text><text x="15" y="480">9</text>
+    <text x="55" y="40">♫</text><text x="55" y="100">3</text><text x="55" y="160">B</text><text x="55" y="220">♩</text><text x="55" y="280">E</text><text x="55" y="340">1</text><text x="55" y="400">8</text><text x="55" y="460">D</text>
+    <text x="95" y="80">5</text><text x="95" y="140">♪</text><text x="95" y="200">0</text><text x="95" y="260">A</text><text x="95" y="320">♫</text><text x="95" y="380">4</text><text x="95" y="440">C</text><text x="95" y="500">6</text>
+    <text x="135" y="50">♩</text><text x="135" y="110">D</text><text x="135" y="170">8</text><text x="135" y="230">2</text><text x="135" y="290">F</text><text x="135" y="350">♪</text><text x="135" y="410">7</text><text x="135" y="470">B</text>
+    <text x="175" y="70">6</text><text x="175" y="130">♫</text><text x="175" y="190">E</text><text x="175" y="250">1</text><text x="175" y="310">9</text><text x="175" y="370">♩</text><text x="175" y="430">3</text><text x="175" y="490">A</text>
+    <text x="335" y="45">♪</text><text x="335" y="105">4</text><text x="335" y="165">C</text><text x="335" y="225">♫</text><text x="335" y="285">0</text><text x="335" y="345">8</text><text x="335" y="405">D</text><text x="335" y="465">5</text>
+    <text x="375" y="65">B</text><text x="375" y="125">♩</text><text x="375" y="185">7</text><text x="375" y="245">2</text><text x="375" y="305">F</text><text x="375" y="365">♪</text><text x="375" y="425">6</text><text x="375" y="485">E</text>
+    <text x="415" y="55">♫</text><text x="415" y="115">1</text><text x="415" y="175">A</text><text x="415" y="235">9</text><text x="415" y="295">♩</text><text x="415" y="355">3</text><text x="415" y="415">D</text><text x="415" y="475">8</text>
+    <text x="455" y="75">0</text><text x="455" y="135">♪</text><text x="455" y="195">5</text><text x="455" y="255">C</text><text x="455" y="315">♫</text><text x="455" y="375">4</text><text x="455" y="435">B</text><text x="455" y="495">7</text>
+    <text x="495" y="90">E</text><text x="495" y="150">2</text><text x="495" y="210">♩</text><text x="495" y="270">F</text><text x="495" y="330">6</text><text x="495" y="390">♪</text><text x="495" y="450">9</text>
+  </g>
+
+  <!-- Soft glow around attractor cores -->
+  <circle cx="175" cy="280" r="80" fill="url(#core2)" filter="url(#softglow)" opacity="0.3"/>
+  <circle cx="340" cy="230" r="80" fill="url(#core2)" filter="url(#softglow)" opacity="0.3"/>
+
+  <!-- Lorenz attractor — left wing (orbiting around ~175,280) -->
+  <path d="M 256,200
+    C 240,185 210,160 185,155
+    C 155,148 125,165 115,190
+    C 105,215 110,250 125,275
+    C 140,300 165,315 185,320
+    C 210,326 235,315 248,295
+    C 258,280 260,260 255,245
+    C 248,225 235,210 220,200
+    C 200,186 175,180 158,188
+    C 140,198 130,220 132,245
+    C 134,270 150,295 172,305
+    C 195,316 218,310 235,295
+    C 250,278 255,258 252,240
+    C 248,220 238,205 225,198
+    C 208,188 190,187 175,195
+    C 158,206 148,225 150,248
+    C 152,272 165,292 182,300
+    C 200,310 220,300 232,285
+    C 242,270 245,252 240,238" fill="none" stroke="url(#trail1)" stroke-width="1.2" opacity="0.7"/>
+
+  <!-- Lorenz attractor — crossover from left to right wing -->
+  <path d="M 240,238
+    C 238,225 242,212 250,205
+    C 260,196 272,192 285,195
+    C 300,200 315,212 325,228" fill="none" stroke="#00e5c8" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- Lorenz attractor — right wing (orbiting around ~340,230) -->
+  <path d="M 325,228
+    C 338,248 355,268 370,278
+    C 390,290 405,285 410,268
+    C 416,248 410,225 398,208
+    C 385,190 365,178 345,175
+    C 320,172 300,180 290,195
+    C 278,214 275,238 282,258
+    C 290,280 308,295 328,300
+    C 352,306 375,298 388,280
+    C 400,262 405,240 398,220
+    C 390,200 375,186 358,180
+    C 338,172 318,178 305,192
+    C 290,208 285,230 290,252
+    C 296,275 312,292 332,298
+    C 355,305 378,295 390,275
+    C 400,258 402,238 395,220
+    C 388,202 375,192 360,188
+    C 342,180 325,185 315,198
+    C 304,214 300,235 305,255" fill="none" stroke="url(#trail2)" stroke-width="1.2" opacity="0.65"/>
+
+  <!-- Second orbit layer — tighter, brighter -->
+  <path d="M 256,210
+    C 242,192 215,170 190,168
+    C 162,166 140,182 132,205
+    C 124,230 130,260 148,282
+    C 166,304 190,315 210,315
+    C 232,315 248,300 255,280
+    C 260,262 258,242 250,228
+    C 240,212 226,202 212,198
+    C 195,192 180,198 170,210
+    C 158,225 155,248 162,268
+    C 170,290 188,302 206,305
+    C 226,308 242,296 250,278
+    C 256,260 254,242 248,230" fill="none" stroke="#00e5c8" stroke-width="0.8" opacity="0.45"/>
+
+  <path d="M 310,205
+    C 325,220 345,242 358,255
+    C 375,270 392,272 400,258
+    C 408,242 405,220 395,205
+    C 382,188 365,180 348,180
+    C 328,180 312,192 305,208
+    C 298,228 300,250 310,268
+    C 322,288 342,296 360,294
+    C 380,290 395,275 400,255
+    C 405,235 400,215 390,202
+    C 378,188 362,184 348,186
+    C 332,190 320,200 315,215" fill="none" stroke="#00e5c8" stroke-width="0.8" opacity="0.45"/>
+
+  <!-- Third orbit — ghost trail, very faint -->
+  <path d="M 258,220
+    C 245,200 220,178 195,175
+    C 168,172 148,190 142,215
+    C 136,242 142,270 160,290
+    C 178,310 205,318 228,308
+    C 248,298 258,275 256,252
+    C 254,230 244,215 230,208
+    C 212,198 195,200 182,215
+    C 168,232 165,258 178,280
+    C 192,302 215,308 236,298" fill="none" stroke="#00e5c8" stroke-width="0.5" opacity="0.2"/>
+
+  <path d="M 318,215
+    C 332,230 352,252 368,262
+    C 388,274 402,268 406,250
+    C 410,232 402,212 388,198
+    C 372,184 352,180 338,185
+    C 322,192 312,208 312,228
+    C 312,250 324,272 342,282
+    C 362,294 382,288 394,270
+    C 404,252 405,232 396,216" fill="none" stroke="#00e5c8" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Bright current-position dot with bloom -->
+  <circle cx="240" cy="238" r="4" fill="#ffffff" filter="url(#bloom)"/>
+  <circle cx="240" cy="238" r="4" fill="#00e5c8" opacity="0.8" filter="url(#bloom)"/>
+  <circle cx="240" cy="238" r="2.5" fill="#ffffff"/>
+
+  <circle cx="305" cy="255" r="3.5" fill="#ffffff" filter="url(#bloom)"/>
+  <circle cx="305" cy="255" r="3.5" fill="#00e5c8" opacity="0.8" filter="url(#bloom)"/>
+  <circle cx="305" cy="255" r="2" fill="#ffffff"/>
+
+  <!-- Scattered hex along the trajectory — data emerging from chaos -->
+  <g font-family="monospace" font-size="9" fill="#00e5c8">
+    <text x="112" y="188" opacity="0.3">CC20</text>
+    <text x="128" y="278" opacity="0.4">7F</text>
+    <text x="170" y="322" opacity="0.35">CC21</text>
+    <text x="230" y="310" opacity="0.25">3A</text>
+    <text x="250" y="202" opacity="0.3">CC22</text>
+    <text x="360" y="173" opacity="0.3">CC23</text>
+    <text x="408" y="265" opacity="0.35">5E</text>
+    <text x="390" y="298" opacity="0.25">CC24</text>
+    <text x="330" y="305" opacity="0.3">4B</text>
+    <text x="282" y="192" opacity="0.2">♩</text>
+    <text x="155" y="152" opacity="0.2">♫</text>
+    <text x="398" y="210" opacity="0.2">♪</text>
+  </g>
+</svg>

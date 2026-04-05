@@ -4,7 +4,7 @@ tagline: "MIDI note mangler — probabilistic dropouts, grid-synced or per-note,
 description: "A MIDI-through processor that drops note-ons based on configurable probability. Two modes: per-note independent drops or per-step grid-quantized decisions. Deterministic seed means the same pattern every time."
 platforms: ["VST3"]
 published: true
-order: 4
+order: 2
 image: "/assets/img/ProbDropoutBKG.png"
 features:
   - title: "Two dropout modes"

@@ -4,10 +4,11 @@ tagline: "Chaotic oscillator MIDI CC generator — 5 modulation streams from a S
 description: "A generative MIDI CC plugin that runs a Sloth Torpor chaotic oscillator and outputs 5 continuous control streams (X, Y, W, Splish A, Splish B) as slow, unpredictable modulation synced to your DAW."
 platforms: ["VST3", "AU"]
 published: true
-order: 8
+order: 3
+image: "/assets/img/plugin-chaosmouse.svg"
 features:
   - title: "Sloth chaotic oscillator"
-    description: "A 4-variable implicit ODE system ported from the Don Cross / Andrew Fitch analog circuit model. Three speed variants — Torpor (slowest), Apathy (medium), Inertia (fastest) — with automatic stuck-point detection and RNG-based jitter to prevent settling."
+    description: "A 4-variable implicit ODE system ported from the Don Cross / Andrew Fitch analog circuit model. 10 speed settings with exponential interpolation from glacial to frantic — with automatic stuck-point detection and RNG-based jitter to prevent settling."
   - title: "5 simultaneous CC streams"
     description: "Three raw axes (X, Y, W) from the oscillator plus two derived Splish outputs computed via a difference-rectifier algorithm. Each stream has its own configurable CC number and output range."
   - title: "Continuous & tempo-synced modes"
@@ -26,11 +27,18 @@ All incoming MIDI passes through untouched. ChaosMouse adds its generated CC mes
 
 ## The oscillator
 
-The [Sloth](/infobits/nlc-sloth) circuit has three speed variants that control how fast the trajectory evolves:
+The [Sloth](/infobits/nlc-sloth) circuit has a speed dial from 1 to 10 with exponential interpolation across the full range — from glacial sweeps to frantic jitter:
 
-- **Torpor** — The slowest. Long, sweeping modulation arcs that unfold over bars.
-- **Apathy** — Medium speed. Good balance between movement and stability.
-- **Inertia** — The fastest. Rapid, jittery modulation with more frequent direction changes.
+1. **Quiet Quitting** — The slowest. Long, sweeping modulation arcs that unfold over bars.
+2. **Pending Approval**
+3. **Out of Office**
+4. **Stuck in Traffic**
+5. **Buffering...**
+6. **Per My Last Email**
+7. **Slight Urgency**
+8. **Monday Morning**
+9. **Deadline Was Yesterday**
+10. **Server Room on Fire** — The fastest. Rapid, jittery modulation with frequent direction changes.
 
 The oscillator uses auto-scaling to track the dynamic range of each axis, so output always fills the configured CC range regardless of speed setting. Built-in stuck-point detection with xorshift32 RNG jitter prevents the system from settling into fixed points.
 
@@ -50,7 +58,7 @@ Set a seed value to initialize the oscillator's starting position. The same seed
 ## Parameters
 
 - **Seed** — Starting position for the oscillator trajectory. Same seed = same modulation.
-- **Speed** — Torpor, Apathy, or Inertia. Controls oscillator time constant.
+- **Speed** — 1–10 with exponential scaling. From "Quiet Quitting" to "Server Room on Fire."
 - **CC Enable** — Master on/off for CC output.
 - **CC Numbers** — Individual CC assignment for X, Y, W, Splish A, Splish B (0–127).
 - **Lo / Hi** — Output range mapping for all CC streams.

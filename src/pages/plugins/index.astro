@@ -19,7 +19,7 @@ const sorted = plugins.sort((a, b) => a.data.order - b.data.order);
       </div>
     </section>
     <section class="grid-border-b">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid md:grid-cols-2">
         {sorted.map((plugin) => (
           <PluginCard name={plugin.data.name} tagline={plugin.data.tagline} slug={plugin.slug} image={plugin.data.image} />
         ))}
