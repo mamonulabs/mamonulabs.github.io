@@ -5,6 +5,7 @@ description: "A MIDI plugin that converts arbitrary data — numbers, text, CSV 
 platforms: ["VST3", "AU"]
 published: true
 order: 9
+image: "/assets/img/plugin-datahell.svg"
 features:
   - title: "Universal data input"
     description: "Paste numbers, text, CSV, or load any file. Numbers map directly to pitch. Non-numeric tokens are deterministically hashed so the same word always produces the same note. No input ever fails — everything becomes music."
@@ -50,7 +51,6 @@ Data values are normalized between the minimum and maximum of the input set, the
 ## Playback
 
 - **Rate** — Step rate synced to DAW tempo: 1/32, 1/16, 1/8, 1/4, 1/2, or 1 bar.
-- **Loop** — Toggle whether the sequence loops continuously or plays through once and stops.
 
 Playback starts automatically when the DAW transport runs and data is present.
 

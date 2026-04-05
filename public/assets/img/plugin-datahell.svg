@@ -1,0 +1,369 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="rain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00e5c8" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#00e5c8" stop-opacity="0.15"/>
+      <stop offset="85%" stop-color="#00e5c8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00e5c8" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#00e5c8" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#00e5c8" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="bloom">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="#030604"/>
+
+  <!-- Ambient floor glow -->
+  <rect x="0" y="0" width="512" height="512" fill="url(#glow)"/>
+
+  <!-- Matrix rain columns — single characters falling, brightest at bottom -->
+  <g font-family="monospace" font-size="13" fill="url(#rain)">
+    <!-- Col 0 (x=12) -->
+    <text x="12" y="48" opacity="0.06">7</text>
+    <text x="12" y="70" opacity="0.09">F</text>
+    <text x="12" y="92" opacity="0.12">♩</text>
+    <text x="12" y="114" opacity="0.16">3</text>
+    <text x="12" y="136" opacity="0.2">C</text>
+    <text x="12" y="158" opacity="0.25">0</text>
+    <text x="12" y="180" opacity="0.3">♪</text>
+    <text x="12" y="202" opacity="0.36">9</text>
+    <text x="12" y="224" opacity="0.42">A</text>
+    <text x="12" y="246" opacity="0.5">1</text>
+    <text x="12" y="268" opacity="0.57">♫</text>
+    <text x="12" y="290" opacity="0.64">B</text>
+    <text x="12" y="312" opacity="0.72">5</text>
+    <text x="12" y="334" opacity="0.8">D</text>
+    <text x="12" y="356" opacity="0.88">♩</text>
+    <text x="12" y="378" opacity="0.94">2</text>
+
+    <!-- Col 1 (x=38) -->
+    <text x="38" y="90" opacity="0.08">♫</text>
+    <text x="38" y="112" opacity="0.14">E</text>
+    <text x="38" y="134" opacity="0.2">4</text>
+    <text x="38" y="156" opacity="0.27">8</text>
+    <text x="38" y="178" opacity="0.34">C</text>
+    <text x="38" y="200" opacity="0.42">♪</text>
+    <text x="38" y="222" opacity="0.5">1</text>
+    <text x="38" y="244" opacity="0.58">F</text>
+    <text x="38" y="266" opacity="0.66">6</text>
+    <text x="38" y="288" opacity="0.74">♩</text>
+    <text x="38" y="310" opacity="0.82">A</text>
+    <text x="38" y="332" opacity="0.9">3</text>
+    <text x="38" y="354" opacity="0.96">D</text>
+    <text x="38" y="376" opacity="1">7</text>
+
+    <!-- Col 2 (x=64) -->
+    <text x="64" y="20" opacity="0.04">0</text>
+    <text x="64" y="42" opacity="0.07">B</text>
+    <text x="64" y="64" opacity="0.1">♪</text>
+    <text x="64" y="86" opacity="0.14">5</text>
+    <text x="64" y="108" opacity="0.18">9</text>
+    <text x="64" y="130" opacity="0.23">D</text>
+    <text x="64" y="152" opacity="0.28">2</text>
+    <text x="64" y="174" opacity="0.34">♫</text>
+    <text x="64" y="196" opacity="0.4">F</text>
+    <text x="64" y="218" opacity="0.46">7</text>
+    <text x="64" y="240" opacity="0.52">C</text>
+    <text x="64" y="262" opacity="0.59">♩</text>
+    <text x="64" y="284" opacity="0.66">1</text>
+    <text x="64" y="306" opacity="0.73">A</text>
+    <text x="64" y="328" opacity="0.8">8</text>
+    <text x="64" y="350" opacity="0.87">♪</text>
+    <text x="64" y="372" opacity="0.93">E</text>
+    <text x="64" y="394" opacity="0.98">4</text>
+    <text x="64" y="416" opacity="1">6</text>
+
+    <!-- Col 3 (x=90) -->
+    <text x="90" y="140" opacity="0.12">A</text>
+    <text x="90" y="162" opacity="0.2">♩</text>
+    <text x="90" y="184" opacity="0.28">3</text>
+    <text x="90" y="206" opacity="0.37">7</text>
+    <text x="90" y="228" opacity="0.46">F</text>
+    <text x="90" y="250" opacity="0.55">♫</text>
+    <text x="90" y="272" opacity="0.64">C</text>
+    <text x="90" y="294" opacity="0.74">1</text>
+    <text x="90" y="316" opacity="0.83">9</text>
+    <text x="90" y="338" opacity="0.91">♪</text>
+    <text x="90" y="360" opacity="0.97">5</text>
+
+    <!-- Col 4 (x=116) -->
+    <text x="116" y="60" opacity="0.07">♫</text>
+    <text x="116" y="82" opacity="0.12">8</text>
+    <text x="116" y="104" opacity="0.17">2</text>
+    <text x="116" y="126" opacity="0.23">D</text>
+    <text x="116" y="148" opacity="0.29">♪</text>
+    <text x="116" y="170" opacity="0.36">6</text>
+    <text x="116" y="192" opacity="0.43">B</text>
+    <text x="116" y="214" opacity="0.5">0</text>
+    <text x="116" y="236" opacity="0.58">♩</text>
+    <text x="116" y="258" opacity="0.65">E</text>
+    <text x="116" y="280" opacity="0.73">4</text>
+    <text x="116" y="302" opacity="0.8">9</text>
+    <text x="116" y="324" opacity="0.87">♫</text>
+    <text x="116" y="346" opacity="0.93">A</text>
+    <text x="116" y="368" opacity="0.98">1</text>
+    <text x="116" y="390" opacity="1">F</text>
+
+    <!-- Col 5 (x=142) -->
+    <text x="142" y="180" opacity="0.15">C</text>
+    <text x="142" y="202" opacity="0.24">♩</text>
+    <text x="142" y="224" opacity="0.33">5</text>
+    <text x="142" y="246" opacity="0.43">0</text>
+    <text x="142" y="268" opacity="0.53">♪</text>
+    <text x="142" y="290" opacity="0.63">D</text>
+    <text x="142" y="312" opacity="0.73">8</text>
+    <text x="142" y="334" opacity="0.83">♫</text>
+    <text x="142" y="356" opacity="0.92">3</text>
+    <text x="142" y="378" opacity="1">B</text>
+
+    <!-- Col 6 (x=168) -->
+    <text x="168" y="30" opacity="0.05">4</text>
+    <text x="168" y="52" opacity="0.08">♪</text>
+    <text x="168" y="74" opacity="0.12">E</text>
+    <text x="168" y="96" opacity="0.16">1</text>
+    <text x="168" y="118" opacity="0.21">A</text>
+    <text x="168" y="140" opacity="0.26">♩</text>
+    <text x="168" y="162" opacity="0.32">7</text>
+    <text x="168" y="184" opacity="0.38">F</text>
+    <text x="168" y="206" opacity="0.44">♫</text>
+    <text x="168" y="228" opacity="0.5">2</text>
+    <text x="168" y="250" opacity="0.57">9</text>
+    <text x="168" y="272" opacity="0.64">C</text>
+    <text x="168" y="294" opacity="0.71">♪</text>
+    <text x="168" y="316" opacity="0.78">6</text>
+    <text x="168" y="338" opacity="0.85">B</text>
+    <text x="168" y="360" opacity="0.91">3</text>
+    <text x="168" y="382" opacity="0.96">♩</text>
+    <text x="168" y="404" opacity="1">D</text>
+
+    <!-- Col 7 (x=194) -->
+    <text x="194" y="110" opacity="0.1">♫</text>
+    <text x="194" y="132" opacity="0.17">6</text>
+    <text x="194" y="154" opacity="0.24">B</text>
+    <text x="194" y="176" opacity="0.32">0</text>
+    <text x="194" y="198" opacity="0.4">♩</text>
+    <text x="194" y="220" opacity="0.48">E</text>
+    <text x="194" y="242" opacity="0.56">3</text>
+    <text x="194" y="264" opacity="0.65">8</text>
+    <text x="194" y="286" opacity="0.73">♪</text>
+    <text x="194" y="308" opacity="0.81">C</text>
+    <text x="194" y="330" opacity="0.89">5</text>
+    <text x="194" y="352" opacity="0.95">♫</text>
+    <text x="194" y="374" opacity="1">A</text>
+
+    <!-- Col 8 (x=220) -->
+    <text x="220" y="40" opacity="0.06">9</text>
+    <text x="220" y="62" opacity="0.1">♪</text>
+    <text x="220" y="84" opacity="0.14">2</text>
+    <text x="220" y="106" opacity="0.19">D</text>
+    <text x="220" y="128" opacity="0.24">♩</text>
+    <text x="220" y="150" opacity="0.3">7</text>
+    <text x="220" y="172" opacity="0.36">1</text>
+    <text x="220" y="194" opacity="0.42">F</text>
+    <text x="220" y="216" opacity="0.49">♫</text>
+    <text x="220" y="238" opacity="0.56">4</text>
+    <text x="220" y="260" opacity="0.63">A</text>
+    <text x="220" y="282" opacity="0.7">♪</text>
+    <text x="220" y="304" opacity="0.77">8</text>
+    <text x="220" y="326" opacity="0.84">C</text>
+    <text x="220" y="348" opacity="0.9">0</text>
+    <text x="220" y="370" opacity="0.95">♩</text>
+    <text x="220" y="392" opacity="1">E</text>
+
+    <!-- Col 9 (x=246) — bright lead column -->
+    <text x="246" y="24" opacity="0.04">D</text>
+    <text x="246" y="46" opacity="0.08">♫</text>
+    <text x="246" y="68" opacity="0.12">5</text>
+    <text x="246" y="90" opacity="0.17">A</text>
+    <text x="246" y="112" opacity="0.22">♩</text>
+    <text x="246" y="134" opacity="0.28">0</text>
+    <text x="246" y="156" opacity="0.34">F</text>
+    <text x="246" y="178" opacity="0.4">3</text>
+    <text x="246" y="200" opacity="0.47">♪</text>
+    <text x="246" y="222" opacity="0.54">8</text>
+    <text x="246" y="244" opacity="0.61">C</text>
+    <text x="246" y="266" opacity="0.68">♫</text>
+    <text x="246" y="288" opacity="0.75">1</text>
+    <text x="246" y="310" opacity="0.82">7</text>
+    <text x="246" y="332" opacity="0.88">♩</text>
+    <text x="246" y="354" opacity="0.93">B</text>
+    <text x="246" y="376" opacity="0.97">6</text>
+    <text x="246" y="398" opacity="1">E</text>
+    <text x="246" y="420" opacity="1">♪</text>
+    <text x="246" y="442" opacity="1">2</text>
+    <text x="246" y="464" opacity="1" fill="#ffffff">9</text>
+
+    <!-- Col 10 (x=272) -->
+    <text x="272" y="70" opacity="0.07">♩</text>
+    <text x="272" y="92" opacity="0.12">B</text>
+    <text x="272" y="114" opacity="0.18">4</text>
+    <text x="272" y="136" opacity="0.24">♪</text>
+    <text x="272" y="158" opacity="0.31">E</text>
+    <text x="272" y="180" opacity="0.38">1</text>
+    <text x="272" y="202" opacity="0.45">8</text>
+    <text x="272" y="224" opacity="0.53">♫</text>
+    <text x="272" y="246" opacity="0.6">F</text>
+    <text x="272" y="268" opacity="0.68">6</text>
+    <text x="272" y="290" opacity="0.76">♩</text>
+    <text x="272" y="312" opacity="0.83">C</text>
+    <text x="272" y="334" opacity="0.9">3</text>
+    <text x="272" y="356" opacity="0.96">D</text>
+    <text x="272" y="378" opacity="1">♪</text>
+
+    <!-- Col 11 (x=298) -->
+    <text x="298" y="160" opacity="0.15">7</text>
+    <text x="298" y="182" opacity="0.23">♫</text>
+    <text x="298" y="204" opacity="0.32">2</text>
+    <text x="298" y="226" opacity="0.41">A</text>
+    <text x="298" y="248" opacity="0.5">♩</text>
+    <text x="298" y="270" opacity="0.6">F</text>
+    <text x="298" y="292" opacity="0.7">5</text>
+    <text x="298" y="314" opacity="0.79">0</text>
+    <text x="298" y="336" opacity="0.88">♪</text>
+    <text x="298" y="358" opacity="0.95">9</text>
+    <text x="298" y="380" opacity="1">C</text>
+
+    <!-- Col 12 (x=324) -->
+    <text x="324" y="50" opacity="0.06">♪</text>
+    <text x="324" y="72" opacity="0.1">3</text>
+    <text x="324" y="94" opacity="0.15">C</text>
+    <text x="324" y="116" opacity="0.2">♫</text>
+    <text x="324" y="138" opacity="0.26">8</text>
+    <text x="324" y="160" opacity="0.32">D</text>
+    <text x="324" y="182" opacity="0.38">♩</text>
+    <text x="324" y="204" opacity="0.45">1</text>
+    <text x="324" y="226" opacity="0.52">5</text>
+    <text x="324" y="248" opacity="0.59">A</text>
+    <text x="324" y="270" opacity="0.66">♪</text>
+    <text x="324" y="292" opacity="0.73">0</text>
+    <text x="324" y="314" opacity="0.8">E</text>
+    <text x="324" y="336" opacity="0.87">♫</text>
+    <text x="324" y="358" opacity="0.93">4</text>
+    <text x="324" y="380" opacity="0.98">B</text>
+    <text x="324" y="402" opacity="1">♩</text>
+
+    <!-- Col 13 (x=350) -->
+    <text x="350" y="120" opacity="0.1">F</text>
+    <text x="350" y="142" opacity="0.17">♪</text>
+    <text x="350" y="164" opacity="0.25">6</text>
+    <text x="350" y="186" opacity="0.33">9</text>
+    <text x="350" y="208" opacity="0.41">♩</text>
+    <text x="350" y="230" opacity="0.5">B</text>
+    <text x="350" y="252" opacity="0.59">2</text>
+    <text x="350" y="274" opacity="0.68">♫</text>
+    <text x="350" y="296" opacity="0.76">E</text>
+    <text x="350" y="318" opacity="0.84">0</text>
+    <text x="350" y="340" opacity="0.91">♪</text>
+    <text x="350" y="362" opacity="0.97">7</text>
+    <text x="350" y="384" opacity="1">A</text>
+
+    <!-- Col 14 (x=376) -->
+    <text x="376" y="36" opacity="0.05">♩</text>
+    <text x="376" y="58" opacity="0.09">4</text>
+    <text x="376" y="80" opacity="0.13">C</text>
+    <text x="376" y="102" opacity="0.18">♫</text>
+    <text x="376" y="124" opacity="0.23">1</text>
+    <text x="376" y="146" opacity="0.28">8</text>
+    <text x="376" y="168" opacity="0.34">D</text>
+    <text x="376" y="190" opacity="0.4">♪</text>
+    <text x="376" y="212" opacity="0.47">3</text>
+    <text x="376" y="234" opacity="0.54">F</text>
+    <text x="376" y="256" opacity="0.61">♩</text>
+    <text x="376" y="278" opacity="0.68">5</text>
+    <text x="376" y="300" opacity="0.75">A</text>
+    <text x="376" y="322" opacity="0.82">♫</text>
+    <text x="376" y="344" opacity="0.89">7</text>
+    <text x="376" y="366" opacity="0.95">0</text>
+    <text x="376" y="388" opacity="1">♪</text>
+    <text x="376" y="410" opacity="1">E</text>
+
+    <!-- Col 15 (x=402) -->
+    <text x="402" y="100" opacity="0.09">B</text>
+    <text x="402" y="122" opacity="0.16">♩</text>
+    <text x="402" y="144" opacity="0.23">6</text>
+    <text x="402" y="166" opacity="0.3">2</text>
+    <text x="402" y="188" opacity="0.38">♪</text>
+    <text x="402" y="210" opacity="0.46">D</text>
+    <text x="402" y="232" opacity="0.54">9</text>
+    <text x="402" y="254" opacity="0.62">♫</text>
+    <text x="402" y="276" opacity="0.7">C</text>
+    <text x="402" y="298" opacity="0.78">0</text>
+    <text x="402" y="320" opacity="0.86">♩</text>
+    <text x="402" y="342" opacity="0.93">4</text>
+    <text x="402" y="364" opacity="1">F</text>
+
+    <!-- Col 16 (x=428) -->
+    <text x="428" y="56" opacity="0.07">♫</text>
+    <text x="428" y="78" opacity="0.11">A</text>
+    <text x="428" y="100" opacity="0.16">3</text>
+    <text x="428" y="122" opacity="0.22">♪</text>
+    <text x="428" y="144" opacity="0.28">E</text>
+    <text x="428" y="166" opacity="0.34">7</text>
+    <text x="428" y="188" opacity="0.41">♩</text>
+    <text x="428" y="210" opacity="0.48">1</text>
+    <text x="428" y="232" opacity="0.55">B</text>
+    <text x="428" y="254" opacity="0.63">5</text>
+    <text x="428" y="276" opacity="0.7">♫</text>
+    <text x="428" y="298" opacity="0.78">D</text>
+    <text x="428" y="320" opacity="0.85">0</text>
+    <text x="428" y="342" opacity="0.92">♪</text>
+    <text x="428" y="364" opacity="0.98">8</text>
+    <text x="428" y="386" opacity="1">F</text>
+
+    <!-- Col 17 (x=454) -->
+    <text x="454" y="80" opacity="0.08">♩</text>
+    <text x="454" y="102" opacity="0.14">2</text>
+    <text x="454" y="124" opacity="0.2">9</text>
+    <text x="454" y="146" opacity="0.27">♫</text>
+    <text x="454" y="168" opacity="0.34">C</text>
+    <text x="454" y="190" opacity="0.41">5</text>
+    <text x="454" y="212" opacity="0.49">♪</text>
+    <text x="454" y="234" opacity="0.57">F</text>
+    <text x="454" y="256" opacity="0.65">8</text>
+    <text x="454" y="278" opacity="0.73">♩</text>
+    <text x="454" y="300" opacity="0.8">A</text>
+    <text x="454" y="322" opacity="0.88">3</text>
+    <text x="454" y="344" opacity="0.94">♫</text>
+    <text x="454" y="366" opacity="1">6</text>
+
+    <!-- Col 18 (x=480) -->
+    <text x="480" y="146" opacity="0.13">♪</text>
+    <text x="480" y="168" opacity="0.21">7</text>
+    <text x="480" y="190" opacity="0.3">B</text>
+    <text x="480" y="212" opacity="0.39">♩</text>
+    <text x="480" y="234" opacity="0.48">4</text>
+    <text x="480" y="256" opacity="0.58">E</text>
+    <text x="480" y="278" opacity="0.67">♫</text>
+    <text x="480" y="300" opacity="0.76">1</text>
+    <text x="480" y="322" opacity="0.85">D</text>
+    <text x="480" y="344" opacity="0.93">♪</text>
+    <text x="480" y="366" opacity="1">6</text>
+  </g>
+
+  <!-- Bright lead characters (white tips of a few columns) -->
+  <g font-family="monospace" font-size="13" fill="#ffffff" filter="url(#bloom)">
+    <text x="12" y="400">♫</text>
+    <text x="64" y="438">♩</text>
+    <text x="168" y="426">0</text>
+    <text x="246" y="486">♪</text>
+    <text x="324" y="424">6</text>
+    <text x="376" y="432">9</text>
+    <text x="428" y="408">♩</text>
+  </g>
+
+  <!-- Teal glow on bright tips (bloom layer) -->
+  <g font-family="monospace" font-size="13" fill="#00e5c8" opacity="0.5" filter="url(#bloom)">
+    <text x="12" y="400">♫</text>
+    <text x="64" y="438">♩</text>
+    <text x="168" y="426">0</text>
+    <text x="246" y="486">♪</text>
+    <text x="324" y="424">6</text>
+    <text x="376" y="432">9</text>
+    <text x="428" y="408">♩</text>
+  </g>
+</svg>
