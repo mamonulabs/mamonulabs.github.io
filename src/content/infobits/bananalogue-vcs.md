@@ -15,21 +15,21 @@ The VCS is a unity gain voltage follower. The rising and falling slopes are inde
 
 <img src="/assets/img/bananalogue-vcs-panel.jpg" alt="Bananalogue VCS Control Panel" style="height: 500px; width: auto;" />
 
-**A** — Trigger input. Trigger fires envelope, gate sustains level
-**B** — Input
-**C** — Cycle switch. Connects "End Out" to "Trigger"
-**D** — AC Out. AC coupled output
-**E** — Output LED
-**F** — Output
-**G** — Both. VC control both Rise and Fall
-**H** — Exp CV. Approximately 1V/Oct scaled input
-**I** — Rise knob. Manual control of rise time
-**J** — End Out. Outputs a trigger pulse when the envelope completes a cycle
-**K** — Fall knob. Manual control of fall time
-**L** — VC Rise. Voltage control of Rise
-**M** — VC Rise Knob. Attenuates VC Rise amount. Pull the knob out for non-linear slopes
-**N** — VC Fall. Voltage control of Fall
-**O** — VC Fall Knob. Attenuates VC Fall amount. Pull the knob out for non-linear slopes
+- **A** Trigger input. Trigger fires envelope, gate sustains level
+- **B** Input
+- **C** Cycle switch. Connects "End Out" to "Trigger"
+- **D** AC Out. AC coupled output
+- **E** Output LED
+- **F** Output
+- **G** Both. VC control both Rise and Fall
+- **H** Exp CV. Approximately 1V/Oct scaled input
+- **I** Rise knob. Manual control of rise time
+- **J** End Out. Outputs a trigger pulse when the envelope completes a cycle
+- **K** Fall knob. Manual control of fall time
+- **L** VC Rise. Voltage control of Rise
+- **M** VC Rise Knob. Attenuates VC Rise amount. Pull the knob out for non-linear slopes
+- **N** VC Fall. Voltage control of Fall
+- **O** VC Fall Knob. Attenuates VC Fall amount. Pull the knob out for non-linear slopes
 
 ---
 
