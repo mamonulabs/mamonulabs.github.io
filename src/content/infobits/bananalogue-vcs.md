@@ -13,23 +13,26 @@ The Serge VCS module from Bananalogue is an extremely versatile control voltage 
 
 The VCS is a unity gain voltage follower. The rising and falling slopes are independently and jointly voltage controllable over a wide range.
 
-<img src="/assets/img/bananalogue-vcs-panel.jpg" alt="Bananalogue VCS Control Panel" style="height: 500px; width: auto;" />
-
-- **A** Trigger input. Trigger fires envelope, gate sustains level
-- **B** Input
-- **C** Cycle switch. Connects "End Out" to "Trigger"
-- **D** AC Out. AC coupled output
-- **E** Output LED
-- **F** Output
-- **G** Both. VC control both Rise and Fall
-- **H** Exp CV. Approximately 1V/Oct scaled input
-- **I** Rise knob. Manual control of rise time
-- **J** End Out. Outputs a trigger pulse when the envelope completes a cycle
-- **K** Fall knob. Manual control of fall time
-- **L** VC Rise. Voltage control of Rise
-- **M** VC Rise Knob. Attenuates VC Rise amount. Pull the knob out for non-linear slopes
-- **N** VC Fall. Voltage control of Fall
-- **O** VC Fall Knob. Attenuates VC Fall amount. Pull the knob out for non-linear slopes
+<div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+  <img src="/assets/img/bananalogue-vcs-panel.jpg" alt="Bananalogue VCS Control Panel" style="width: 45%; min-width: 280px; height: auto; flex-shrink: 0;" />
+  <div style="flex: 1; min-width: 240px; font-size: 0.85rem; line-height: 1.5; color: #94a3b8; padding-top: 2.5rem;">
+    <span style="color: #0d59f2; font-weight: bold;">A</span> Trigger input — trigger fires envelope, gate sustains level<br/>
+    <span style="color: #0d59f2; font-weight: bold;">B</span> Input<br/>
+    <span style="color: #0d59f2; font-weight: bold;">C</span> Cycle switch — connects "End Out" to "Trigger"<br/>
+    <span style="color: #0d59f2; font-weight: bold;">D</span> AC Out — AC coupled output<br/>
+    <span style="color: #0d59f2; font-weight: bold;">E</span> Output LED<br/>
+    <span style="color: #0d59f2; font-weight: bold;">F</span> Output<br/>
+    <span style="color: #0d59f2; font-weight: bold;">G</span> Both — VC control both Rise and Fall<br/>
+    <span style="color: #0d59f2; font-weight: bold;">H</span> Exp CV — approximately 1V/Oct scaled input<br/>
+    <span style="color: #0d59f2; font-weight: bold;">I</span> Rise knob — manual control of rise time<br/>
+    <span style="color: #0d59f2; font-weight: bold;">J</span> End Out — trigger pulse when envelope completes a cycle<br/>
+    <span style="color: #0d59f2; font-weight: bold;">K</span> Fall knob — manual control of fall time<br/>
+    <span style="color: #0d59f2; font-weight: bold;">L</span> VC Rise — voltage control of Rise<br/>
+    <span style="color: #0d59f2; font-weight: bold;">M</span> VC Rise Knob — attenuates VC Rise. Pull out for non-linear slopes<br/>
+    <span style="color: #0d59f2; font-weight: bold;">N</span> VC Fall — voltage control of Fall<br/>
+    <span style="color: #0d59f2; font-weight: bold;">O</span> VC Fall Knob — attenuates VC Fall. Pull out for non-linear slopes
+  </div>
+</div>
 
 ---
 
