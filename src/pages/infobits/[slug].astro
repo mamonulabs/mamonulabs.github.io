@@ -6,7 +6,7 @@ import AudioEnhancer from '../../components/media/AudioEnhancer.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const infobits = await getCollection('infobits');
+  const infobits = await getCollection('infobits', ({ data }) => data.published !== false);
   return infobits.map((infobit) => ({ params: { slug: infobit.slug } }));
 }
 

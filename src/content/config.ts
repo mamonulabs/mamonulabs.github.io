@@ -25,6 +25,7 @@ const infobitsCollection = defineCollection({
     author: z.string().optional(),
     publishedAt: z.date().optional(),
     readingTime: z.number().optional(),
+    published: z.boolean().default(true),
   }),
 });
 

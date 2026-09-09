@@ -9,7 +9,7 @@ const { name, tagline, slug, image } = Astro.props;
 ---
 <a href={`/plugins/${slug}`} class="group cursor-pointer relative overflow-hidden grid-border">
   {image && (
-    <div class="aspect-square w-full grayscale group-hover:grayscale-0 transition-all duration-700 overflow-hidden">
+    <div class="plugin-card-media aspect-square w-full grayscale group-hover:grayscale-0 transition-all duration-700 overflow-hidden">
       <img src={image} alt={name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
     </div>
   )}

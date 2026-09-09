@@ -1,0 +1,64 @@
+---
+// Ambient scroll-driven particle field, adapted from mamonu.github.io.
+// Loaded lazily and only where it can pay for itself: pointer-capable,
+// wide-viewport, motion-permitting browsers with working WebGL.
+interface Props {
+  count?: number;
+}
+const { count = 12000 } = Astro.props;
+---
+<div id="particle-field" data-count={count} aria-hidden="true"></div>
+
+<script>
+  const container = document.getElementById('particle-field');
+
+  if (container) {
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const coarsePointer = matchMedia('(pointer: coarse)');
+    const count = Number(container.dataset.count) || 12000;
+
+    // Skip touch-first and narrow viewports outright: the per-frame particle
+    // loop is the kind of thing that quietly eats a phone battery.
+    const eligible = () =>
+      !reducedMotion.matches && !coarsePointer.matches && innerWidth >= 768 && hasWebGL();
+
+    function hasWebGL() {
+      try {
+        const canvas = document.createElement('canvas');
+        return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+      } catch {
+        return false;
+      }
+    }
+
+    let field: { setCalm(v: boolean): void; dispose(): void } | null = null;
+    let loading = false;
+
+    async function start() {
+      if (field || loading || !eligible()) return;
+      loading = true;
+      try {
+        const { createParticleField } = await import('../../scripts/particle-field.js');
+        if (!eligible()) return;
+        field = createParticleField(container, { count, onError: teardown });
+        if (field) container.classList.add('is-ready');
+      } catch (error) {
+        console.warn('Particle field unavailable:', error);
+      } finally {
+        loading = false;
+      }
+    }
+
+    function teardown() {
+      container.classList.remove('is-ready');
+      field?.dispose();
+      field = null;
+    }
+
+    reducedMotion.addEventListener('change', () => (reducedMotion.matches ? teardown() : start()));
+
+    // Let the page paint and settle before pulling in three.js.
+    if ('requestIdleCallback' in window) requestIdleCallback(() => start(), { timeout: 2500 });
+    else setTimeout(start, 1200);
+  }
+</script>
