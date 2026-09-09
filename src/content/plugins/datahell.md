@@ -6,6 +6,8 @@ platforms: ["VST3", "AU"]
 published: true
 order: 4
 image: "/assets/img/plugin-datahell.svg"
+screenshot: "/assets/img/screenshot-datahell.png"
+screenshotAlt: "DataHell plugin interface showing the parsed data grid, pitch and velocity ranges, and scale quantization keyboard"
 features:
   - title: "Universal data input"
     description: "Paste numbers, text, CSV, or load any file. Numbers map directly to pitch. Non-numeric tokens are deterministically hashed so the same word always produces the same note. No input ever fails — everything becomes music."

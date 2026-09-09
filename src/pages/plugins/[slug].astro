@@ -27,6 +27,21 @@ const hasVisualizer = slug === 'ostirustools';
       </div>
     </section>
 
+    {plugin.data.screenshot && (
+      <section class="py-24 px-8 md:px-24 grid-border-b">
+        <div class="max-w-6xl mx-auto">
+          <span class="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12 block">Interface</span>
+          <img
+            src={plugin.data.screenshot}
+            alt={plugin.data.screenshotAlt ?? `${plugin.data.name} plugin interface`}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto border border-white/10"
+          />
+        </div>
+      </section>
+    )}
+
     {plugin.data.features && plugin.data.features.length > 0 && (
       <section class="py-24 px-8 md:px-24 grid-border-b">
         <div class="max-w-6xl mx-auto">
