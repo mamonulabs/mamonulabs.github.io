@@ -6,6 +6,8 @@ platforms: ["VST3"]
 published: true
 order: 2
 image: "/assets/img/ProbDropoutBKG.png"
+screenshot: "/assets/img/screenshot-probdropoutmidi.jpg"
+screenshotAlt: "ProbDropoutMidi plugin interface showing the Drop and Vel Rand knobs alongside the seed, mode and grid controls"
 features:
   - title: "Two dropout modes"
     description: "Per Note evaluates each note-on independently. Per Step quantizes to a grid division — all notes at the same grid step get the exact same dropout decision."

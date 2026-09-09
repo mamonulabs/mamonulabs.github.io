@@ -9,6 +9,8 @@ const pluginsCollection = defineCollection({
     platforms: z.array(z.enum(['VST3', 'AU', 'CLAP', 'AAX'])).default(['VST3', 'AU', 'CLAP']),
     features: z.array(z.object({ title: z.string(), description: z.string() })).optional(),
     image: z.string().optional(),
+    screenshot: z.string().optional(),
+    screenshotAlt: z.string().optional(),
     order: z.number().default(0),
     published: z.boolean().default(true),
   }),

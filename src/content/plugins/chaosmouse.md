@@ -6,6 +6,8 @@ platforms: ["VST3", "AU"]
 published: true
 order: 3
 image: "/assets/img/plugin-chaosmouse.svg"
+screenshot: "/assets/img/screenshot-chaosmouse.png"
+screenshotAlt: "ChaosMouse plugin interface showing the real-time attractor visualizer and CC assignment controls"
 features:
   - title: "Sloth chaotic oscillator"
     description: "A 4-variable implicit ODE system ported from the Don Cross / Andrew Fitch analog circuit model. 10 speed settings with exponential interpolation from glacial to frantic — with automatic stuck-point detection and RNG-based jitter to prevent settling."
