@@ -1,6 +1,7 @@
 ---
 title: "Mutable Instruments Marbles"
 description: "A random sampler generating rhythms and voltages with controllable memory"
+published: false
 ---
 
 <img src="/assets/img/marbles.jpg" alt="Marbles" style="height: 500px; width: auto;" />
