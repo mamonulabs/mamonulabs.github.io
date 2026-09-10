@@ -149,7 +149,7 @@ function fillSampleHold(home, count, rng) {
 }
 
 export function createParticleField(container, {
-  count = 12000,
+  count = 6000,
   calm = false,
   shape = SHAPE,
   seed = SEED,
@@ -210,13 +210,13 @@ export function createParticleField(container, {
   const cloudMat = new THREE.PointsMaterial({
     // Soft edges shrink the apparent radius, so this runs larger than the
     // hard-square size it replaces.
-    size: sampleHold ? 0.14 : 0.11,
+    size: sampleHold ? 0.26 : 0.11,
     map: sprite,
     vertexColors: true,
     transparent: true,
     // Dimmer points under sample-and-hold; the wider bloom supplies the glow,
     // which keeps the field soft without milking over the text in front of it.
-    opacity: sampleHold ? 0.62 : 0.85,
+    opacity: sampleHold ? 0.5 : 0.85,
     blending: THREE.AdditiveBlending,
     depthWrite: false,
   });
@@ -227,8 +227,8 @@ export function createParticleField(container, {
   // ── Nearest-neighbour filaments ──
   // Fewer and dimmer under sample-and-hold: filaments are what would let the
   // eye trace structure, and structure is the thing being hidden here.
-  const SEG_COUNT = sampleHold ? 300 : 220;
-  const SEG_OPACITY = sampleHold ? 0.85 : 0.7;
+  const SEG_COUNT = sampleHold ? 2000 : 220;
+  const SEG_OPACITY = sampleHold ? 0.52 : 0.7;
   const seg = [];
   const segPhase = [];
   const segGate = [];
@@ -239,7 +239,7 @@ export function createParticleField(container, {
   // Phase accumulates with arc length over the WHOLE path, so one pulse crawls
   // the entire zigzag — corners included — instead of restarting each segment.
   function pushStaircase(ax, ay, az, bx, by, bz) {
-    const holds = 2 + ((rng() * 4) | 0);
+    const holds = 3 + ((rng() * 6) | 0);
     const path = [[ax, ay, az]];
     let cx = ax, cy = ay;
     for (let k = 1; k <= holds; k++) {
@@ -273,7 +273,7 @@ export function createParticleField(container, {
     const a = (rng() * COUNT) | 0;
     let best = -1;
     let bd = 1e9;
-    for (let k = 0; k < 6; k++) {
+    for (let k = 0; k < 10; k++) {
       const b = (rng() * COUNT) | 0;
       const dx = home[a * 3] - home[b * 3];
       const dy = home[a * 3 + 1] - home[b * 3 + 1];

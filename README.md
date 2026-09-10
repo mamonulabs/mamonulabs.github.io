@@ -1,6 +1,6 @@
 # mamonulabs
 
-Audio plugins for creative music production.
+Probability-driven plugins for music production.
 
 **https://mamonulabs.github.io**
 
