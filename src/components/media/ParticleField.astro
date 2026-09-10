@@ -5,7 +5,7 @@
 interface Props {
   count?: number;
 }
-const { count = 12000 } = Astro.props;
+const { count = 6000 } = Astro.props;
 ---
 <div id="particle-field" data-count={count} aria-hidden="true"></div>
 
@@ -15,7 +15,7 @@ const { count = 12000 } = Astro.props;
   if (container) {
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     const coarsePointer = matchMedia('(pointer: coarse)');
-    const count = Number(container.dataset.count) || 12000;
+    const count = Number(container.dataset.count) || 6000;
 
     // Skip touch-first and narrow viewports outright: the per-frame particle
     // loop is the kind of thing that quietly eats a phone battery.

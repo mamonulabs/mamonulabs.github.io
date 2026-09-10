@@ -9,12 +9,12 @@ import { getCollection } from 'astro:content';
 const plugins = await getCollection('plugins', ({ data }) => data.published !== false);
 const sortedPlugins = plugins.sort((a, b) => a.data.order - b.data.order);
 ---
-<BaseLayout title="Audio Plugins for Creative Music Production">
+<BaseLayout title="Probability-Driven Plugins for Music Production">
   <Header />
   <main class="flex-grow">
     <Hero
       title="plugins <br/> that inspire <br/> creativity"
-      subtitle="Probability-based effects and unique sound design tools for adventurous music producers."
+      subtitle="Probability, chaos and controlled randomness — generative tools for producers who want surprises they can reproduce."
       primaryCta={{ label: "Explore Plugins", href: "/plugins" }}
       secondaryCta={{ label: "Learn More", href: "/about" }}
     />
